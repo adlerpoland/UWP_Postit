@@ -6,15 +6,19 @@ using System.Threading.Tasks;
 using Template10.Services.NavigationService;
 using Windows.UI.Xaml.Navigation;
 using Post.Models;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml;
+using System.Collections.ObjectModel;
+using Windows.Foundation;
 
 namespace Post.ViewModels
 {
     public class MainPageViewModel : ViewModelBase
     {
-        
+        public ObservableCollection<Note> Notes;
         public MainPageViewModel()
         {
-            
+            Notes = NoteManager.GetNotes();
         }
 
         public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> suspensionState)

@@ -252,5 +252,4 @@ c:\users\patryk\documents\visual studio 2015\Projects\Post\Post\obj\x86\Debug\Vi
 c:\users\patryk\documents\visual studio 2015\Projects\Post\Post\bin\x86\Debug\Views\TaskPage.xbf
 C:\Users\Patryk\Documents\Visual Studio 2015\Projects\Post\Post\bin\x86\Debug\NotificationsExtensions.winmd
 C:\Users\Patryk\Documents\Visual Studio 2015\Projects\Post\Post\bin\x86\Debug\NotificationsExtensions.pdb
-C:\Users\Patryk\Documents\Visual Studio 2015\Projects\Post\Post\obj\x86\Debug\Post.csprojResolveAssemblyReference.cache
 C:\Users\Patryk\Documents\Visual Studio 2015\Projects\Post\Post\obj\x86\Debug\NotificationsExtensions.pri.xml

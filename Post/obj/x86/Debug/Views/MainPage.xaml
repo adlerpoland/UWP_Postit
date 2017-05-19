@@ -75,10 +75,13 @@
 
             </controls:PageHeader>
         </RelativePanel>
+
+        
+
         <!--<RelativePanel Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">-->
         <RelativePanel Grid.Row="1" HorizontalAlignment="Center">
-            <GridView x:ConnectionId='4'                             >
-                <GridView.ItemTemplate>
+            <GridView x:ConnectionId='4'                                        CanDragItems="True" AllowDrop="True" CanReorderItems="True">
+                <GridView.ItemTemplate >
                     <DataTemplate                       >
                         <RelativePanel x:ConnectionId='5' Height="200" Width="200" Margin="10,10,10,10">
                             <RelativePanel.Background>

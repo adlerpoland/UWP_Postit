@@ -75,10 +75,13 @@
 
             </controls:PageHeader>
         </RelativePanel>
+
+        
+
         <!--<RelativePanel Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">-->
         <RelativePanel Grid.Row="1" HorizontalAlignment="Center">
-            <GridView ItemsSource="{x:Bind Notes}">
-                <GridView.ItemTemplate>
+            <GridView ItemsSource="{x:Bind ViewModel.Notes}" CanDragItems="True" AllowDrop="True" CanReorderItems="True">
+                <GridView.ItemTemplate >
                     <DataTemplate x:DataType="data:Note">
                         <RelativePanel Height="200" Width="200" Margin="10,10,10,10">
                             <RelativePanel.Background>

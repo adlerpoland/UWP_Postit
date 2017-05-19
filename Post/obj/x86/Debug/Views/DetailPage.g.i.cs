@@ -47,7 +47,6 @@ namespace Post.Views
             global::Windows.UI.Xaml.Application.LoadComponent(this, resourceLocator, global::Windows.UI.Xaml.Controls.Primitives.ComponentResourceLocation.Application);
         }
 
-        
         private interface IDetailPage_Bindings
         {
             void Initialize();

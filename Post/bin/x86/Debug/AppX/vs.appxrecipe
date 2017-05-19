@@ -16,7 +16,7 @@
     <PackageRegistrationPath>
     </PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
-    <RegisteredManifestChecksum>4CC6B66FC8CDF0AB448E6431AF69F6D2B36501523CCB98FD283594258107472F</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>68875A7B5678F083FDBC544DB8F78416A4AC96291FE55CE6C209FF786170B9B5</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>012cfdbd-1a4a-42f2-8536-1bf73bee5260_1.0.0.0_x86__921svg5sgvznp</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>012cfdbd-1a4a-42f2-8536-1bf73bee5260_921svg5sgvznp!App</RegisteredUserModeAppID>
     <RegisteredPackageID>012cfdbd-1a4a-42f2-8536-1bf73bee5260</RegisteredPackageID>
@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\Patryk\Documents\Visual Studio 2015\Projects\Post\Post\bin\x86\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-05-19T22:50:02.146</Modified>
+      <Modified>2017-05-19T23:54:51.558</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Patryk\Documents\Visual Studio 2015\Projects\Post\Post\bin\x86\Debug\Post.exe">
       <PackagePath>Post.exe</PackagePath>
-      <Modified>2017-05-19T22:49:55.417</Modified>
+      <Modified>2017-05-19T23:54:44.913</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Patryk\.nuget\packages\Microsoft.CSharp\4.0.1\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -604,7 +604,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Patryk\Documents\Visual Studio 2015\Projects\Post\Post\bin\x86\Debug\Post.xr.xml">
       <PackagePath>Post.xr.xml</PackagePath>
-      <Modified>2017-05-19T22:49:55.186</Modified>
+      <Modified>2017-05-19T23:40:16.638</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Patryk\.nuget\packages\Template10\1.1.12\lib\uap10.0\Template10Library\Template10Library.xr.xml">
       <PackagePath>Template10Library\Template10Library.xr.xml</PackagePath>
@@ -641,7 +641,7 @@
     <AppxPackagedFile Include="C:\Users\Patryk\Documents\Visual Studio 2015\Projects\Post\Post\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-05-19T22:49:56.354</Modified>
+      <Modified>2017-05-19T23:54:45.815</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

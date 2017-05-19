@@ -210,6 +210,9 @@
     <RootType FullName="Post.ViewModels.MainPageViewModel" />
     <RootType FullName="Windows.UI.Xaml.Controls.GridView">
       <RootProperty Name="ItemsSource" />
+      <RootProperty Name="CanDragItems" />
+      <RootProperty Name="AllowDrop" />
+      <RootProperty Name="CanReorderItems" />
       <RootProperty Name="ItemTemplate" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.DataTemplate">

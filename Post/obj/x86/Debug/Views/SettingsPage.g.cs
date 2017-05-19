@@ -15,7 +15,8 @@ namespace Post.Views
         global::Windows.UI.Xaml.Markup.IComponentConnector,
         global::Windows.UI.Xaml.Markup.IComponentConnector2
     {
-        internal class XamlBindingSetters
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks"," 14.0.0.0")]
+        private static class XamlBindingSetters
         {
             public static void Set_Template10_Controls_PageHeader_Frame(global::Template10.Controls.PageHeader obj, global::Windows.UI.Xaml.Controls.Frame value, string targetNullValue)
             {
@@ -35,6 +36,7 @@ namespace Post.Views
             }
         };
 
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks"," 14.0.0.0")]
         private class SettingsPage_obj1_Bindings :
             global::Windows.UI.Xaml.Markup.IComponentConnector,
             ISettingsPage_Bindings
@@ -89,11 +91,14 @@ namespace Post.Views
             {
             }
 
-            // SettingsPage_obj1_Bindings
-
-            public void SetDataRoot(global::Post.Views.SettingsPage newDataRoot)
+            public bool SetDataRoot(global::System.Object newDataRoot)
             {
-                this.dataRoot = newDataRoot;
+                if (newDataRoot != null)
+                {
+                    this.dataRoot = (global::Post.Views.SettingsPage)newDataRoot;
+                    return true;
+                }
+                return false;
             }
 
             public void Loading(global::Windows.UI.Xaml.FrameworkElement src, object data)
@@ -115,7 +120,7 @@ namespace Post.Views
             }
             private void Update_Frame(global::Windows.UI.Xaml.Controls.Frame obj, int phase)
             {
-                if((phase & ((1 << 0) | NOT_PHASED )) != 0)
+                if ((phase & ((1 << 0) | NOT_PHASED )) != 0)
                 {
                     XamlBindingSetters.Set_Template10_Controls_PageHeader_Frame(this.obj7, obj, null);
                 }
@@ -142,7 +147,7 @@ namespace Post.Views
             }
             private void Update_ViewModel_SettingsPartViewModel_ShowBusyCommand(global::Template10.Mvvm.DelegateCommand obj, int phase)
             {
-                if((phase & ((1 << 0) | NOT_PHASED )) != 0)
+                if ((phase & ((1 << 0) | NOT_PHASED )) != 0)
                 {
                     XamlBindingSetters.Set_Windows_UI_Xaml_Controls_Primitives_ButtonBase_Command(this.obj16, obj, null);
                 }

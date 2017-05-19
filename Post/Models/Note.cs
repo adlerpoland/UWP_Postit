@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,9 +19,9 @@ namespace Post.Models
     }
     public class NoteManager
     {
-        public static List<Note> GetNotes()
+        public static ObservableCollection<Note> GetNotes()
         {
-            var notes = new List<Note>();
+            var notes = new ObservableCollection<Note>();
 
             notes.Add(new Note { id = 1, header = "Clean wardrobe", content = "Clean that ugly wardrobe in bedroom", date = new DateTime(2017, 05, 28) });
             notes.Add(new Note { id = 2, parentid = 1, header = "Fix car", content = "Take some time to fix your mother's car", date = new DateTime(2017, 05, 29) });
