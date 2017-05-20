@@ -93,7 +93,12 @@ namespace Post.ViewModels
         {
             //if (e.DataView.Contains(StandardDataFormats.StorageItems))
             //{
-            e.AcceptedOperation = DataPackageOperation.Move;
+            var destinationListView = sender as ListView;
+            var listViewItemsSource = destinationListView?.ItemsSource as ObservableCollection<Note>;
+            if(listViewItemsSource!=source)
+            {
+                e.AcceptedOperation = DataPackageOperation.Move;
+            }
             //}
         }
 
@@ -109,16 +114,13 @@ namespace Post.ViewModels
             var destinationListView = sender as ListView;
             var listViewItemsSource = destinationListView?.ItemsSource as ObservableCollection<Note>;
 
-            if (listViewItemsSource != null)
+            if (listViewItemsSource != null && listViewItemsSource!=source)
             {
                 objectWasMoved = true;
 
                 //IF IS PARENT
                 if (source[0] == movedObject)
                 {
-                    //MOVE OBJECT TO LIST
-                    //listViewItemsSource.Add(movedObject);
-
                     //GET OBJECT AND CHILDREN AND ADD
                     foreach (Note n in source)
                     {
@@ -128,23 +130,53 @@ namespace Post.ViewModels
                     //CHECK IF OBJECT IS STILL PARENT
                     Note firstChild = listViewItemsSource[0];
 
-                    Debug.WriteLine("PARENT HEADER: " + firstChild.header);
                     if(firstChild != movedObject)
                     {
-                        Debug.WriteLine("FIRST CHILD ID: " + firstChild.id + " MOVED OBJECT ID: " + movedObject.id);
-                        movedObject.parentid = firstChild.id;
+                        foreach(Note child in listViewItemsSource)
+                        {
+                            child.parentid = firstChild.id;
+                        }
                     }
                     else
                     {
-                        Debug.WriteLine("FIRST CHILD ID: " + firstChild.id + " MOVED OBJECT ID: " + movedObject.id);
+                        foreach (Note child in listViewItemsSource)
+                        {
+                            child.parentid = movedObject.id;
+                        }
                         movedObject.parentid = 0;
                     }
                 }
                 //IF IS CHILD
                 else
                 {
-                    //GET PARENT ID
-                    //movedObject.parentid = listViewItemsSource[0].id;
+                    //GET OBJECT AND CHILDREN BELOW IT AND ADD
+                    bool below = false;
+                    foreach (Note n in source)
+                    {
+                        if (n.id == movedObject.id)
+                            below = true;
+                        if(below)
+                            listViewItemsSource.Add(n);
+                    }
+
+                    //CHECK IF OBJECT IS PARENT
+                    Note firstChild = listViewItemsSource[0];
+
+                    if (firstChild != movedObject)
+                    {
+                        foreach (Note child in listViewItemsSource)
+                        {
+                            child.parentid = firstChild.id;
+                        }
+                    }
+                    else
+                    {
+                        foreach (Note child in listViewItemsSource)
+                        {
+                            child.parentid = movedObject.id;
+                        }
+                        movedObject.parentid = 0;
+                    }
                 }
             }
             else
@@ -156,38 +188,46 @@ namespace Post.ViewModels
         public void ListView_DragItemsCompleted(ListViewBase sender, DragItemsCompletedEventArgs args)
         {
             //Debug.WriteLine("COMPLETE");
-            if(objectWasMoved == true)
+            if (objectWasMoved == true)
             {
                 var destinationListView = sender as ListView;
                 var listViewItemsSource = destinationListView?.ItemsSource as ObservableCollection<Note>;
 
+                //IF WAS PARENT
                 if (source[0] == movedObject)
                 {
-                    //GET OBJECT CHILDREN CHANGE PARENT ID AND REMOVE
+                    //GET OBJECT CHILDREN AND REMOVE
+                    ObservableCollection<Note> toRemove = new ObservableCollection<Note>();
+                    foreach (Note n in listViewItemsSource)
+                    {
+                        toRemove.Add(n);
+                    }
+                    foreach (Note n in toRemove)
+                    {
+                        listViewItemsSource.Remove(n);
+                    }
+                }
+                //IF WAS CHILD
+                else
+                {
                     bool parent = false;
                     ObservableCollection<Note> toRemove = new ObservableCollection<Note>();
                     foreach (Note n in listViewItemsSource)
-                    {           
+                    {
                         if (n.id == movedObject.id)
+                        {
                             parent = true;
-                        else if(parent==true)
+                            toRemove.Add(n);
+                        }
+                        else if (parent == true)
                         {
                             toRemove.Add(n);
                         }
                     }
-
                     foreach (Note n in toRemove)
                     {
                         listViewItemsSource.Remove(n);
-                        n.parentid = movedObject.parentid;
                     }
-
-                    //REMOVE OBJECT FROM LIST
-                    listViewItemsSource.Remove(movedObject);
-                }
-                else
-                {
-
                 }
             }
         }

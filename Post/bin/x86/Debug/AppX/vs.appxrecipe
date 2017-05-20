@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\Patryk\Documents\Visual Studio 2015\Projects\Post\Post\bin\x86\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-05-20T21:33:40.937</Modified>
+      <Modified>2017-05-20T21:57:20.319</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Patryk\Documents\Visual Studio 2015\Projects\Post\Post\bin\x86\Debug\Post.exe">
       <PackagePath>Post.exe</PackagePath>
-      <Modified>2017-05-20T21:33:35.225</Modified>
+      <Modified>2017-05-20T21:57:14.647</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Patryk\.nuget\packages\Microsoft.CSharp\4.0.1\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -641,7 +641,7 @@
     <AppxPackagedFile Include="C:\Users\Patryk\Documents\Visual Studio 2015\Projects\Post\Post\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-05-20T21:32:13.064</Modified>
+      <Modified>2017-05-20T21:37:41.625</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
