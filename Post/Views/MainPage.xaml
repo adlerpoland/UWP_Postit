@@ -90,9 +90,9 @@
                                     <GradientStop Color="#FFC59564" Offset="1"/>
                                 </LinearGradientBrush>
                             </RelativePanel.Background>
-                            <TextBlock Name="header" Text="{x:Bind header}" Height="30" TextWrapping="NoWrap" HorizontalAlignment="Center" FontSize="20" FontWeight="ExtraBold" Foreground="#FFD6B900" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
-                            <TextBlock Name="content" Text="{x:Bind content}" Height="150" TextWrapping="Wrap" FontSize="16" FontStyle="Italic" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="header"/>
-                            <TextBlock Name="date" Text="{x:Bind date}" Height="20" TextWrapping="NoWrap" VerticalAlignment="Bottom" Foreground="Black" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
+                            <TextBlock Name="header" Text="{x:Bind header}" Margin="5,0,5,0" Height="30" TextWrapping="NoWrap" HorizontalAlignment="Center" FontSize="20" FontWeight="ExtraBold" Foreground="#FFD6B900" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
+                            <TextBlock Name="content" Text="{x:Bind content}" Margin="5,0,5,0" Height="150" TextWrapping="Wrap" FontSize="16" FontStyle="Italic" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="header"/>
+                            <TextBlock Name="date" Text="{x:Bind date}" Margin="5,0,5,0" Height="20" TextWrapping="NoWrap" VerticalAlignment="Bottom" Foreground="Black" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
                         </RelativePanel>
                     </DataTemplate>
                 </GridView.ItemTemplate>

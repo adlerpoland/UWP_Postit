@@ -29,6 +29,8 @@ namespace Post.Models
             notes.Add(new Note { id = 4, header = "Buy camera", content = "Find some cool camera for your trip", date = new DateTime(2017, 05, 28) });
             notes.Add(new Note { id = 5, header = "Dad birthday!", content = "Call him", date = new DateTime(2017, 06, 04) });
             notes.Add(new Note { id = 6, header = "Get mail", content = "Take that mail from an office", date = new DateTime(2017, 06, 05) });
+            notes.Add(new Note { id = 7, header = "Return stolen bike to Jimmy", content = "Jimmy wants his bike", date = new DateTime(2017, 06, 05) });
+            notes.Add(new Note { id = 8, parentid = 7,header = "This is the longest note available", content = "Lorum ipsum blah blah blah 123 flyingflyingasdbnasdajnsdaasdf test dasdas gasda gasd agasd asdadw dawd adasd asd a dsasda sdas dasd asdasdasddddsas h hh fg erw", date = new DateTime(2017, 06, 05) });
 
             return notes;
         }
