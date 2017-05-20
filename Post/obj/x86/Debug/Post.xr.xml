@@ -236,12 +236,16 @@
     <RootType FullName="Windows.UI.Xaml.Controls.ListView">
       <RootProperty Name="ItemsSource" />
       <RootProperty Name="Height" />
-      <RootProperty Name="CanDragItems" />
-      <RootProperty Name="AllowDrop" />
       <RootProperty Name="Header" />
       <RootProperty Name="Margin" />
+      <RootProperty Name="CanDragItems" />
+      <RootProperty Name="AllowDrop" />
       <RootProperty Name="ItemContainerStyle" />
       <RootProperty Name="ItemTemplate" />
+      <RootEvent Name="DragItemsStarting" />
+      <RootEvent Name="DragOver" />
+      <RootEvent Name="DragItemsCompleted" />
+      <RootEvent Name="Drop" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding">
       <RootProperty Name="Converter" />

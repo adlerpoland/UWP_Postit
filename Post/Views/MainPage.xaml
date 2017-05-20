@@ -88,7 +88,15 @@
             <GridView ItemsSource="{x:Bind ViewModel.NotesCollection}" CanDragItems="True" AllowDrop="True" CanReorderItems="True">
                 <GridView.ItemTemplate >
                     <DataTemplate x:DataType="data:NoteCollecton">
-                        <ListView ItemsSource="{Binding NoteCollection}" Height="300" CanDragItems="True" AllowDrop="True" Header="Grab me" Margin="10,0,0,0">
+                        <ListView ItemsSource="{Binding NoteCollection}" 
+                                  Height="300" Header="Grab me" 
+                                  Margin="10,0,0,0" 
+                                  CanDragItems="True" 
+                                  AllowDrop="True"
+                                  DragItemsStarting="ViewModel.ListView_DragItemsStarting"
+                                  DragOver="ViewModel.ListView_DragOver"   
+                                  DragItemsCompleted="ViewModel.ListView_DragItemsCompleted"
+                                  Drop="ViewModel.ListView_Drop"> 
                             <!--<ListView ItemsSource="{Binding NoteCollection}" Height="300" CanDragItems="True" AllowDrop="True" CanReorderItems="True" Header="Collection"  Header="Grab me">-->
                             <ListView.ItemContainerStyle>
                                 <Style TargetType="ListViewItem">
