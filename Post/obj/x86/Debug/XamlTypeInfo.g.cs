@@ -816,6 +816,7 @@ namespace Post.Post_XamlTypeInfo
             case 60:   //  Post.ViewModels.MainPageViewModel
                 userType = new global::Post.Post_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Template10.Mvvm.ViewModelBase"));
                 userType.Activator = Activate_60_MainPageViewModel;
+                userType.AddMemberName("isRemoveVisible");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -1791,12 +1792,22 @@ namespace Post.Post_XamlTypeInfo
             var that = (global::Post.ViewModels.DetailPageViewModel)instance;
             that.Value = (global::System.String)Value;
         }
-        private object get_90_SettingsPageViewModel_SettingsPartViewModel(object instance)
+        private object get_90_MainPageViewModel_isRemoveVisible(object instance)
+        {
+            var that = (global::Post.ViewModels.MainPageViewModel)instance;
+            return that.isRemoveVisible;
+        }
+        private void set_90_MainPageViewModel_isRemoveVisible(object instance, object Value)
+        {
+            var that = (global::Post.ViewModels.MainPageViewModel)instance;
+            that.isRemoveVisible = (global::Windows.UI.Xaml.Visibility)Value;
+        }
+        private object get_91_SettingsPageViewModel_SettingsPartViewModel(object instance)
         {
             var that = (global::Post.ViewModels.SettingsPageViewModel)instance;
             return that.SettingsPartViewModel;
         }
-        private object get_91_SettingsPageViewModel_AboutPartViewModel(object instance)
+        private object get_92_SettingsPageViewModel_AboutPartViewModel(object instance)
         {
             var that = (global::Post.ViewModels.SettingsPageViewModel)instance;
             return that.AboutPartViewModel;
@@ -2414,16 +2425,22 @@ namespace Post.Post_XamlTypeInfo
                 xamlMember.Getter = get_89_DetailPageViewModel_Value;
                 xamlMember.Setter = set_89_DetailPageViewModel_Value;
                 break;
+            case "Post.ViewModels.MainPageViewModel.isRemoveVisible":
+                userType = (global::Post.Post_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Post.ViewModels.MainPageViewModel");
+                xamlMember = new global::Post.Post_XamlTypeInfo.XamlMember(this, "isRemoveVisible", "Windows.UI.Xaml.Visibility");
+                xamlMember.Getter = get_90_MainPageViewModel_isRemoveVisible;
+                xamlMember.Setter = set_90_MainPageViewModel_isRemoveVisible;
+                break;
             case "Post.ViewModels.SettingsPageViewModel.SettingsPartViewModel":
                 userType = (global::Post.Post_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Post.ViewModels.SettingsPageViewModel");
                 xamlMember = new global::Post.Post_XamlTypeInfo.XamlMember(this, "SettingsPartViewModel", "Post.ViewModels.SettingsPartViewModel");
-                xamlMember.Getter = get_90_SettingsPageViewModel_SettingsPartViewModel;
+                xamlMember.Getter = get_91_SettingsPageViewModel_SettingsPartViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Post.ViewModels.SettingsPageViewModel.AboutPartViewModel":
                 userType = (global::Post.Post_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Post.ViewModels.SettingsPageViewModel");
                 xamlMember = new global::Post.Post_XamlTypeInfo.XamlMember(this, "AboutPartViewModel", "Post.ViewModels.AboutPartViewModel");
-                xamlMember.Getter = get_91_SettingsPageViewModel_AboutPartViewModel;
+                xamlMember.Getter = get_92_SettingsPageViewModel_AboutPartViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             }

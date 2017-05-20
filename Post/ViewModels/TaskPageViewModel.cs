@@ -65,12 +65,6 @@ namespace Post.ViewModels
                 notification.TextBody2.Text = DateTime.Now.ToString("hh:mm:ss");
                 notification.Duration = ToastDuration.Short;
 
-
-                /*ScheduledToastNotification time;
-                time = new ScheduledToastNotification(notification.GetXml(), DateTime.Now.AddMilliseconds(100));
-                time.Id = "notificationID";
-                ToastNotificationManager.CreateToastNotifier().AddToSchedule(time);*/
-
                 ToastNotification not = new ToastNotification(notification.GetXml());
                 ToastNotificationManager.CreateToastNotifier().Show(not);
             }

@@ -4,6 +4,7 @@
     <RootInterface FullName="Windows.UI.Xaml.Data.IValueConverter" />
   </Roots.Interfaces>
   <Roots.PropertyPathNames>
+    <RootPropertyPathName Name="isRemoveVisible" />
     <RootPropertyPathName Name="NoteCollection" />
     <RootPropertyPathName Name="date" />
     <RootPropertyPathName Name="content" />
@@ -70,6 +71,13 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.UserControl">
       <RootProperty Name="Content" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="AllowDrop" />
+      <RootProperty Name="Visibility" />
+      <RootEvent Name="DragOver" />
+      <RootEvent Name="Drop" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Viewbox">
       <RootProperty Name="Height" />
@@ -106,12 +114,13 @@
       <RootProperty Name="Foreground" />
       <RootProperty Name="Text" />
       <RootProperty Name="Style" />
-      <RootProperty Name="Name" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="TextWrapping" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="FontSize" />
       <RootProperty Name="FontWeight" />
+      <RootProperty Name="TextAlignment" />
+      <RootProperty Name="Name" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="TextWrapping" />
       <RootProperty Name="FontStyle" />
       <RootProperty Name="Inlines" />
       <RootProperty Name="LineHeight" />
@@ -223,7 +232,14 @@
     <RootType FullName="Post.Views.DetailPage" />
     <RootType FullName="Post.Converters.DateFormatConverter" />
     <RootType FullName="Post.ViewModels.MainPageViewModel" />
+    <RootType FullName="Windows.UI.Xaml.Data.Binding">
+      <RootProperty Name="Mode" />
+      <RootProperty Name="Converter" />
+      <RootProperty Name="UpdateSourceTrigger" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.GridView">
+      <RootProperty Name="MinHeight" />
+      <RootProperty Name="MinWidth" />
       <RootProperty Name="ItemsSource" />
       <RootProperty Name="CanDragItems" />
       <RootProperty Name="AllowDrop" />
@@ -246,11 +262,6 @@
       <RootEvent Name="DragOver" />
       <RootEvent Name="DragItemsCompleted" />
       <RootEvent Name="Drop" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Data.Binding">
-      <RootProperty Name="Converter" />
-      <RootProperty Name="Mode" />
-      <RootProperty Name="UpdateSourceTrigger" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ListViewItem" />
     <RootType FullName="Windows.UI.Xaml.FrameworkElement">

@@ -35,8 +35,8 @@
         <RelativePanel Grid.Column="0">
 
             <VisualStateManager.VisualStateGroups>
-                <VisualStateGroup x:ConnectionId='8' x:Name="AdaptiveVisualStateGroup">
-                    <VisualState x:ConnectionId='9' x:Name="VisualStateNarrow">
+                <VisualStateGroup x:ConnectionId='10' x:Name="AdaptiveVisualStateGroup">
+                    <VisualState x:ConnectionId='11' x:Name="VisualStateNarrow">
                         <VisualState.StateTriggers>
                             <AdaptiveTrigger MinWindowWidth="{StaticResource NarrowMinWidth}" />
                         </VisualState.StateTriggers>
@@ -45,7 +45,7 @@
                             <Setter Target="stateTextBox.Text" Value="Narrow Visual State" />
                         </VisualState.Setters>
                     </VisualState>
-                    <VisualState x:ConnectionId='10' x:Name="VisualStateNormal">
+                    <VisualState x:ConnectionId='12' x:Name="VisualStateNormal">
                         <VisualState.StateTriggers>
                             <AdaptiveTrigger MinWindowWidth="{StaticResource NormalMinWidth}" />
                         </VisualState.StateTriggers>
@@ -54,7 +54,7 @@
                             <Setter Target="stateTextBox.Text" Value="Normal Visual State" />
                         </VisualState.Setters>
                     </VisualState>
-                    <VisualState x:ConnectionId='11' x:Name="VisualStateWide">
+                    <VisualState x:ConnectionId='13' x:Name="VisualStateWide">
                         <VisualState.StateTriggers>
                             <AdaptiveTrigger MinWindowWidth="{StaticResource WideMinWidth}" />
                         </VisualState.StateTriggers>
@@ -66,7 +66,7 @@
                 </VisualStateGroup>
             </VisualStateManager.VisualStateGroups>
 
-            <controls:PageHeader x:ConnectionId='12' x:Name="pageHeader"
+            <controls:PageHeader x:ConnectionId='14' x:Name="pageHeader"
                              RelativePanel.AlignLeftWithPanel="True"
                              RelativePanel.AlignRightWithPanel="True"
                              RelativePanel.AlignTopWithPanel="True"
@@ -74,8 +74,8 @@
 
                 <!--  secondary commands  -->
                 <controls:PageHeader.SecondaryCommands>
-                    <AppBarButton x:ConnectionId='13'                                         Label="Settings" />
-                    <AppBarButton x:ConnectionId='14'                                      Label="About" />
+                    <AppBarButton x:ConnectionId='15'                                         Label="Settings" />
+                    <AppBarButton x:ConnectionId='16'                                      Label="About" />
                 </controls:PageHeader.SecondaryCommands>
 
             </controls:PageHeader>
@@ -85,10 +85,10 @@
 
         <!--<RelativePanel Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">-->
         <RelativePanel Grid.Row="1" HorizontalAlignment="Center">
-            <GridView x:ConnectionId='6'                                                  CanDragItems="True" AllowDrop="True" CanReorderItems="True">
+            <GridView x:ConnectionId='8' MinHeight="300" MinWidth="200"                                                  CanDragItems="True" AllowDrop="True" CanReorderItems="True">
                 <GridView.ItemTemplate >
                     <DataTemplate                                >
-                        <ListView x:ConnectionId='7' ItemsSource="{Binding NoteCollection}" 
+                        <ListView x:ConnectionId='9' ItemsSource="{Binding NoteCollection}" 
                                   Height="300" Header="Grab me" 
                                   Margin="10,0,0,0" 
                                   CanDragItems="True" 
@@ -142,6 +142,20 @@
                     Width="200"
                     VerticalAlignment="Stretch" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True" />
 
+            <UserControl x:ConnectionId='6' x:Name="removeControl"
+                         Width="100" 
+                         HorizontalAlignment="Center" 
+                         VerticalAlignment="Stretch" 
+                         RelativePanel.AlignTopWithPanel="True" 
+                         RelativePanel.AlignBottomWithPanel="True" 
+                         RelativePanel.AlignLeftWithPanel="True" 
+                         RelativePanel.AlignRightWithPanel="True"
+                         AllowDrop="True"
+                                                                
+                                                     
+                         Visibility="{Binding isRemoveVisible,Mode=Twoway}">
+                <TextBlock x:ConnectionId='7' x:Name="textBlock" HorizontalAlignment="Stretch" Text="(X)" VerticalAlignment="Stretch" FontSize="36" FontWeight="Bold" TextAlignment="Center"/>
+            </UserControl>
 
         </RelativePanel>
     </Grid>

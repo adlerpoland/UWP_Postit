@@ -23,11 +23,18 @@ namespace Post.ViewModels
         Note movedObject = null;
         bool objectWasMoved = false;
         ObservableCollection<Note> source;
+        private Visibility _isRemoveVisible = Visibility.Collapsed;
+
+
+        public Visibility isRemoveVisible
+        {
+            get { return _isRemoveVisible; }
+            set { _isRemoveVisible = value; RaisePropertyChanged("isRemoveVisible"); }
+        }
 
         public MainPageViewModel()
         {
             BuildCollection();
-            
         }
 
         public void BuildCollection()
@@ -84,15 +91,19 @@ namespace Post.ViewModels
             var listViewItemsSource = destinationListView?.ItemsSource as ObservableCollection<Note>;
             source = listViewItemsSource;
 
-
             //Debug.WriteLine(it.header);
             e.Data.RequestedOperation = DataPackageOperation.Move;
+
+            //CHECK IF IT'S LAST NOTE
+            //SO YOU CAN DISPLAY X FOR REMOVING
+            if(listViewItemsSource.Last() == movedObject)
+            {
+                isRemoveVisible = Visibility.Visible;
+            }
         }
 
         public void ListView_DragOver(object sender, DragEventArgs e)
         {
-            //if (e.DataView.Contains(StandardDataFormats.StorageItems))
-            //{
             var destinationListView = sender as ListView;
             var listViewItemsSource = destinationListView?.ItemsSource as ObservableCollection<Note>;
             if(listViewItemsSource!=source)
@@ -107,18 +118,10 @@ namespace Post.ViewModels
                 else
                     e.AcceptedOperation = DataPackageOperation.Move;
             }
-            //}
         }
 
         public void ListView_Drop(object sender, DragEventArgs e)
         {
-            //if (e.DataView.Contains(StandardDataFormats.Text))
-            //{
-            //var item = await e.DataView.GetTextAsync();
-            //var item = await e.DataView.GetStorageItemsAsync();
-
-            //Note it = item as Note;
-
             var destinationListView = sender as ListView;
             var listViewItemsSource = destinationListView?.ItemsSource as ObservableCollection<Note>;
 
@@ -195,6 +198,9 @@ namespace Post.ViewModels
 
         public void ListView_DragItemsCompleted(ListViewBase sender, DragItemsCompletedEventArgs args)
         {
+            //HIDE REMOVE
+            isRemoveVisible = Visibility.Collapsed;
+
             //Debug.WriteLine("COMPLETE");
             if (objectWasMoved == true)
             {
@@ -238,6 +244,21 @@ namespace Post.ViewModels
                     }
                 }
             }
+        }
+
+        public void Remove_DragOver(object sender, DragEventArgs e)
+        {
+            if(source.Last() == movedObject)
+            {
+                e.AcceptedOperation = DataPackageOperation.Move;
+                e.DragUIOverride.Caption = "Usuñ";
+            }
+        }
+
+        public void Remove_Drop(object sender, DragEventArgs e)
+        {
+            //REMOVE OBJECT
+            source.Remove(movedObject);
         }
 
         public void GotoDetailsPage() =>

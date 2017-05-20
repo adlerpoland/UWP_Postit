@@ -85,7 +85,7 @@
 
         <!--<RelativePanel Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">-->
         <RelativePanel Grid.Row="1" HorizontalAlignment="Center">
-            <GridView ItemsSource="{x:Bind ViewModel.NotesCollection}" CanDragItems="True" AllowDrop="True" CanReorderItems="True">
+            <GridView MinHeight="300" MinWidth="200" ItemsSource="{x:Bind ViewModel.NotesCollection}" CanDragItems="True" AllowDrop="True" CanReorderItems="True">
                 <GridView.ItemTemplate >
                     <DataTemplate x:DataType="data:NoteCollecton">
                         <ListView ItemsSource="{Binding NoteCollection}" 
@@ -142,6 +142,20 @@
                     Width="200"
                     VerticalAlignment="Stretch" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True" />
 
+            <UserControl x:Name="removeControl"
+                         Width="100" 
+                         HorizontalAlignment="Center" 
+                         VerticalAlignment="Stretch" 
+                         RelativePanel.AlignTopWithPanel="True" 
+                         RelativePanel.AlignBottomWithPanel="True" 
+                         RelativePanel.AlignLeftWithPanel="True" 
+                         RelativePanel.AlignRightWithPanel="True"
+                         AllowDrop="True"
+                         DragOver="ViewModel.Remove_DragOver"   
+                         Drop="ViewModel.Remove_Drop"
+                         Visibility="{Binding isRemoveVisible,Mode=Twoway}">
+                <TextBlock x:Name="textBlock" HorizontalAlignment="Stretch" Text="(X)" VerticalAlignment="Stretch" FontSize="36" FontWeight="Bold" TextAlignment="Center"/>
+            </UserControl>
 
         </RelativePanel>
     </Grid>
