@@ -97,7 +97,15 @@ namespace Post.ViewModels
             var listViewItemsSource = destinationListView?.ItemsSource as ObservableCollection<Note>;
             if(listViewItemsSource!=source)
             {
-                e.AcceptedOperation = DataPackageOperation.Move;
+                //IF NOT EMPTY THEN CHECK LAST DATA
+                if(listViewItemsSource.Count > 0)
+                {
+                    Note lastNote = listViewItemsSource.Last();
+                    if (lastNote.date.CompareTo(movedObject.date) <= 0)
+                        e.AcceptedOperation = DataPackageOperation.Move;
+                }
+                else
+                    e.AcceptedOperation = DataPackageOperation.Move;
             }
             //}
         }
