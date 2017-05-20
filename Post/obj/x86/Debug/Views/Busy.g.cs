@@ -15,8 +15,7 @@ namespace Post.Views
         global::Windows.UI.Xaml.Markup.IComponentConnector,
         global::Windows.UI.Xaml.Markup.IComponentConnector2
     {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks"," 14.0.0.0")]
-        private static class XamlBindingSetters
+        internal class XamlBindingSetters
         {
             public static void Set_Windows_UI_Xaml_Controls_ProgressRing_IsActive(global::Windows.UI.Xaml.Controls.ProgressRing obj, global::System.Boolean value)
             {
@@ -32,7 +31,6 @@ namespace Post.Views
             }
         };
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks"," 14.0.0.0")]
         private class Busy_obj1_Bindings :
             global::Windows.UI.Xaml.Markup.IComponentConnector,
             IBusy_Bindings
@@ -92,15 +90,12 @@ namespace Post.Views
                 this.initialized = false;
             }
 
-            public bool SetDataRoot(global::System.Object newDataRoot)
+            // Busy_obj1_Bindings
+
+            public void SetDataRoot(global::Post.Views.Busy newDataRoot)
             {
                 this.bindingsTracking.ReleaseAllListeners();
-                if (newDataRoot != null)
-                {
-                    this.dataRoot = (global::Post.Views.Busy)newDataRoot;
-                    return true;
-                }
-                return false;
+                this.dataRoot = newDataRoot;
             }
 
             public void Loading(global::Windows.UI.Xaml.FrameworkElement src, object data)
@@ -130,14 +125,14 @@ namespace Post.Views
             }
             private void Update_IsBusy(global::System.Boolean obj, int phase)
             {
-                if ((phase & ((1 << 0) | NOT_PHASED | DATA_CHANGED)) != 0)
+                if((phase & ((1 << 0) | NOT_PHASED | DATA_CHANGED)) != 0)
                 {
                     XamlBindingSetters.Set_Windows_UI_Xaml_Controls_ProgressRing_IsActive(this.obj2, obj);
                 }
             }
             private void Update_BusyText(global::System.String obj, int phase)
             {
-                if ((phase & ((1 << 0) | NOT_PHASED | DATA_CHANGED)) != 0)
+                if((phase & ((1 << 0) | NOT_PHASED | DATA_CHANGED)) != 0)
                 {
                     XamlBindingSetters.Set_Windows_UI_Xaml_Controls_TextBlock_Text(this.obj3, obj, null);
                 }
@@ -145,16 +140,15 @@ namespace Post.Views
 
             private void UpdateFallback_BusyText(int phase)
             {
-                if ((phase & ((1 << 0) | NOT_PHASED | DATA_CHANGED)) != 0)
+                if((phase & ((1 << 0) | NOT_PHASED | DATA_CHANGED)) != 0)
                 {
                     XamlBindingSetters.Set_Windows_UI_Xaml_Controls_TextBlock_Text(this.obj3, "BusyText", null);
                 }
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks"," 14.0.0.0")]
             private class Busy_obj1_BindingsTracking
             {
-                private global::System.WeakReference<Busy_obj1_Bindings> WeakRefToBindingObj; 
+                global::System.WeakReference<Busy_obj1_Bindings> WeakRefToBindingObj; 
 
                 public Busy_obj1_BindingsTracking(Busy_obj1_Bindings obj)
                 {
@@ -169,29 +163,29 @@ namespace Post.Views
                 public void DependencyPropertyChanged_IsBusy(global::Windows.UI.Xaml.DependencyObject sender, global::Windows.UI.Xaml.DependencyProperty prop)
                 {
                     Busy_obj1_Bindings bindings;
-                    if (WeakRefToBindingObj.TryGetTarget(out bindings))
+                    if(WeakRefToBindingObj.TryGetTarget(out bindings))
                     {
                         global::Post.Views.Busy obj = sender as global::Post.Views.Busy;
-                        if (obj != null)
-                        {
-                            bindings.Update_IsBusy(obj.IsBusy, DATA_CHANGED);
-                        }
+        if (obj != null)
+        {
+            bindings.Update_IsBusy(obj.IsBusy, DATA_CHANGED);
+        }
                     }
                 }
                 public void DependencyPropertyChanged_BusyText(global::Windows.UI.Xaml.DependencyObject sender, global::Windows.UI.Xaml.DependencyProperty prop)
                 {
                     Busy_obj1_Bindings bindings;
-                    if (WeakRefToBindingObj.TryGetTarget(out bindings))
+                    if(WeakRefToBindingObj.TryGetTarget(out bindings))
                     {
                         global::Post.Views.Busy obj = sender as global::Post.Views.Busy;
-                        if (obj != null)
-                        {
-                            bindings.Update_BusyText(obj.BusyText, DATA_CHANGED);
-                        }
-                        else
-                        {
-                        bindings.UpdateFallback_BusyText(DATA_CHANGED);
-                        }
+        if (obj != null)
+        {
+            bindings.Update_BusyText(obj.BusyText, DATA_CHANGED);
+        }
+        else
+        {
+        bindings.UpdateFallback_BusyText(DATA_CHANGED);
+        }
                     }
                 }
                 private long tokenDPC_IsBusy = 0;
@@ -199,7 +193,7 @@ namespace Post.Views
                 public void UpdateChildListeners_(global::Post.Views.Busy obj)
                 {
                     Busy_obj1_Bindings bindings;
-                    if (WeakRefToBindingObj.TryGetTarget(out bindings))
+                    if(WeakRefToBindingObj.TryGetTarget(out bindings))
                     {
                         if (bindings.dataRoot != null)
                         {

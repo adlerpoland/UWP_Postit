@@ -10,10 +10,15 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:vm="using:Post.ViewModels"
       xmlns:data="using:Post.Models"
+      xmlns:conv="using:Post.Converters" 
       mc:Ignorable="d">
 
+    <Page.Resources>
+        <conv:DateFormatConverter x:ConnectionId='2' x:Name="DateToStringFormatConverter"/>
+    </Page.Resources>
+    
     <Page.DataContext>
-        <vm:MainPageViewModel x:ConnectionId='2' x:Name="ViewModel" />
+        <vm:MainPageViewModel x:ConnectionId='3' x:Name="ViewModel" />
     </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -30,8 +35,8 @@
         <RelativePanel Grid.Column="0">
 
             <VisualStateManager.VisualStateGroups>
-                <VisualStateGroup x:ConnectionId='9' x:Name="AdaptiveVisualStateGroup">
-                    <VisualState x:ConnectionId='10' x:Name="VisualStateNarrow">
+                <VisualStateGroup x:ConnectionId='7' x:Name="AdaptiveVisualStateGroup">
+                    <VisualState x:ConnectionId='8' x:Name="VisualStateNarrow">
                         <VisualState.StateTriggers>
                             <AdaptiveTrigger MinWindowWidth="{StaticResource NarrowMinWidth}" />
                         </VisualState.StateTriggers>
@@ -40,7 +45,7 @@
                             <Setter Target="stateTextBox.Text" Value="Narrow Visual State" />
                         </VisualState.Setters>
                     </VisualState>
-                    <VisualState x:ConnectionId='11' x:Name="VisualStateNormal">
+                    <VisualState x:ConnectionId='9' x:Name="VisualStateNormal">
                         <VisualState.StateTriggers>
                             <AdaptiveTrigger MinWindowWidth="{StaticResource NormalMinWidth}" />
                         </VisualState.StateTriggers>
@@ -49,7 +54,7 @@
                             <Setter Target="stateTextBox.Text" Value="Normal Visual State" />
                         </VisualState.Setters>
                     </VisualState>
-                    <VisualState x:ConnectionId='12' x:Name="VisualStateWide">
+                    <VisualState x:ConnectionId='10' x:Name="VisualStateWide">
                         <VisualState.StateTriggers>
                             <AdaptiveTrigger MinWindowWidth="{StaticResource WideMinWidth}" />
                         </VisualState.StateTriggers>
@@ -61,7 +66,7 @@
                 </VisualStateGroup>
             </VisualStateManager.VisualStateGroups>
 
-            <controls:PageHeader x:ConnectionId='13' x:Name="pageHeader"
+            <controls:PageHeader x:ConnectionId='11' x:Name="pageHeader"
                              RelativePanel.AlignLeftWithPanel="True"
                              RelativePanel.AlignRightWithPanel="True"
                              RelativePanel.AlignTopWithPanel="True"
@@ -69,49 +74,66 @@
 
                 <!--  secondary commands  -->
                 <controls:PageHeader.SecondaryCommands>
-                    <AppBarButton x:ConnectionId='14'                                         Label="Settings" />
-                    <AppBarButton x:ConnectionId='15'                                      Label="About" />
+                    <AppBarButton x:ConnectionId='12'                                         Label="Settings" />
+                    <AppBarButton x:ConnectionId='13'                                      Label="About" />
                 </controls:PageHeader.SecondaryCommands>
 
             </controls:PageHeader>
         </RelativePanel>
 
-        
+
 
         <!--<RelativePanel Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">-->
         <RelativePanel Grid.Row="1" HorizontalAlignment="Center">
-            <GridView x:ConnectionId='4'                                        CanDragItems="True" AllowDrop="True" CanReorderItems="True">
+            <GridView x:ConnectionId='6'                                                  CanDragItems="True" AllowDrop="True" CanReorderItems="True">
                 <GridView.ItemTemplate >
-                    <DataTemplate                       >
-                        <RelativePanel x:ConnectionId='5' Height="200" Width="200" Margin="10,10,10,10">
-                            <RelativePanel.Background>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="#FF935920" Offset="0"/>
-                                    <GradientStop Color="#FFC59564" Offset="1"/>
-                                </LinearGradientBrush>
-                            </RelativePanel.Background>
-                            <TextBlock x:ConnectionId='6' Name="header"                        Margin="5,0,5,0" Height="30" TextWrapping="NoWrap" HorizontalAlignment="Center" FontSize="20" FontWeight="ExtraBold" Foreground="#FFD6B900" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
-                            <TextBlock x:ConnectionId='7' Name="content"                         Margin="5,0,5,0" Height="150" TextWrapping="Wrap" FontSize="16" FontStyle="Italic" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="header"/>
-                            <TextBlock x:ConnectionId='8' Name="date"                      Margin="5,0,5,0" Height="20" TextWrapping="NoWrap" VerticalAlignment="Bottom" Foreground="Black" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
-                        </RelativePanel>
+                    <DataTemplate                                >
+                        <ListView ItemsSource="{Binding NoteCollection}" Height="300" CanDragItems="True" AllowDrop="True" Header="Grab me" Margin="10,0,0,0">
+                            <!--<ListView ItemsSource="{Binding NoteCollection}" Height="300" CanDragItems="True" AllowDrop="True" CanReorderItems="True" Header="Collection"  Header="Grab me">-->
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="Padding" Value="0,0,0,-170"/>
+                                    <Setter Property="BorderThickness" Value="0"/>
+                                    <Setter Property="MinHeight" Value="20" />
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.ItemTemplate>
+                                <DataTemplate                       >
+                                    <StackPanel Height="200" Width="200" Margin="10,0,10,0" BorderThickness="2" BorderBrush="Red" RenderTransformOrigin="0.5,0.5">
+                                        <StackPanel.Background>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="#FF935920" Offset="0"/>
+                                                <GradientStop Color="#FFC59564" Offset="1"/>
+                                            </LinearGradientBrush>
+                                        </StackPanel.Background>
+                                        <TextBlock Name="header" Text="{Binding header}" Margin="5,0,5,0" Height="30" TextWrapping="NoWrap" HorizontalAlignment="Center" FontSize="20" FontWeight="ExtraBold" Foreground="#FFD6B900" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
+                                        <TextBlock Name="content" Text="{Binding content}" Margin="5,0,5,0" Height="150" TextWrapping="Wrap" FontSize="16" FontStyle="Italic" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="header"/>
+                                        <TextBlock Name="date" Text="{Binding date, Converter={StaticResource DateToStringFormatConverter}}" Margin="5,0,5,0" Height="20" TextWrapping="NoWrap" VerticalAlignment="Bottom" Foreground="Black" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True" HorizontalAlignment="Right"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
                     </DataTemplate>
                 </GridView.ItemTemplate>
             </GridView>
         </RelativePanel>
         <!--</RelativePanel>-->
-        <RelativePanel RelativePanel.AlignBottomWithPanel="True"
-                       RelativePanel.AlignLeftWithPanel="True"
-                       RelativePanel.AlignRightWithPanel="True"
-                       RelativePanel.AlignTopWithPanel="True"
-                       VerticalAlignment="Stretch"
-                       HorizontalAlignment="Right"
+        <RelativePanel VerticalAlignment="Stretch"
+                       HorizontalAlignment="Stretch"
                        Grid.Row="2">
 
-            <Button x:ConnectionId='3' x:Name="submitButton"
+            <Button x:ConnectionId='4' x:Name="debugButton"
+                                                        
+                    Content="Debug"  
+                    Width="200"
+                    VerticalAlignment="Stretch" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" />
+
+            <Button x:ConnectionId='5' x:Name="submitButton"
                                                            
                     Content="New Task"  
                     Width="200"
-                    VerticalAlignment="Stretch" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True"/>
+                    VerticalAlignment="Stretch" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True" />
+
 
         </RelativePanel>
     </Grid>

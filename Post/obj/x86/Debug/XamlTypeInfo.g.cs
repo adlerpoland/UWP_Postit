@@ -156,7 +156,7 @@ namespace Post.Post_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[66];
+            _typeNameTable = new string[67];
             _typeNameTable[0] = "Template10.Common.BootStrapper";
             _typeNameTable[1] = "Windows.UI.Xaml.Application";
             _typeNameTable[2] = "Template10.Common.StateItems";
@@ -216,15 +216,16 @@ namespace Post.Post_XamlTypeInfo
             _typeNameTable[56] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[57] = "Post.ViewModels.DetailPageViewModel";
             _typeNameTable[58] = "Post.Views.DetailPage";
-            _typeNameTable[59] = "Post.ViewModels.MainPageViewModel";
-            _typeNameTable[60] = "Post.Views.MainPage";
-            _typeNameTable[61] = "Post.ViewModels.SettingsPageViewModel";
-            _typeNameTable[62] = "Post.ViewModels.SettingsPartViewModel";
-            _typeNameTable[63] = "Post.ViewModels.AboutPartViewModel";
-            _typeNameTable[64] = "Post.Views.SettingsPage";
-            _typeNameTable[65] = "Post.Views.Splash";
+            _typeNameTable[59] = "Post.Converters.DateFormatConverter";
+            _typeNameTable[60] = "Post.ViewModels.MainPageViewModel";
+            _typeNameTable[61] = "Post.Views.MainPage";
+            _typeNameTable[62] = "Post.ViewModels.SettingsPageViewModel";
+            _typeNameTable[63] = "Post.ViewModels.SettingsPartViewModel";
+            _typeNameTable[64] = "Post.ViewModels.AboutPartViewModel";
+            _typeNameTable[65] = "Post.Views.SettingsPage";
+            _typeNameTable[66] = "Post.Views.Splash";
 
-            _typeTable = new global::System.Type[66];
+            _typeTable = new global::System.Type[67];
             _typeTable[0] = typeof(global::Template10.Common.BootStrapper);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Application);
             _typeTable[2] = typeof(global::Template10.Common.StateItems);
@@ -284,13 +285,14 @@ namespace Post.Post_XamlTypeInfo
             _typeTable[56] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[57] = typeof(global::Post.ViewModels.DetailPageViewModel);
             _typeTable[58] = typeof(global::Post.Views.DetailPage);
-            _typeTable[59] = typeof(global::Post.ViewModels.MainPageViewModel);
-            _typeTable[60] = typeof(global::Post.Views.MainPage);
-            _typeTable[61] = typeof(global::Post.ViewModels.SettingsPageViewModel);
-            _typeTable[62] = typeof(global::Post.ViewModels.SettingsPartViewModel);
-            _typeTable[63] = typeof(global::Post.ViewModels.AboutPartViewModel);
-            _typeTable[64] = typeof(global::Post.Views.SettingsPage);
-            _typeTable[65] = typeof(global::Post.Views.Splash);
+            _typeTable[59] = typeof(global::Post.Converters.DateFormatConverter);
+            _typeTable[60] = typeof(global::Post.ViewModels.MainPageViewModel);
+            _typeTable[61] = typeof(global::Post.Views.MainPage);
+            _typeTable[62] = typeof(global::Post.ViewModels.SettingsPageViewModel);
+            _typeTable[63] = typeof(global::Post.ViewModels.SettingsPartViewModel);
+            _typeTable[64] = typeof(global::Post.ViewModels.AboutPartViewModel);
+            _typeTable[65] = typeof(global::Post.Views.SettingsPage);
+            _typeTable[66] = typeof(global::Post.Views.Splash);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -339,12 +341,13 @@ namespace Post.Post_XamlTypeInfo
         private object Activate_55_TaskPage() { return new global::Post.Views.TaskPage(); }
         private object Activate_57_DetailPageViewModel() { return new global::Post.ViewModels.DetailPageViewModel(); }
         private object Activate_58_DetailPage() { return new global::Post.Views.DetailPage(); }
-        private object Activate_59_MainPageViewModel() { return new global::Post.ViewModels.MainPageViewModel(); }
-        private object Activate_60_MainPage() { return new global::Post.Views.MainPage(); }
-        private object Activate_61_SettingsPageViewModel() { return new global::Post.ViewModels.SettingsPageViewModel(); }
-        private object Activate_62_SettingsPartViewModel() { return new global::Post.ViewModels.SettingsPartViewModel(); }
-        private object Activate_63_AboutPartViewModel() { return new global::Post.ViewModels.AboutPartViewModel(); }
-        private object Activate_64_SettingsPage() { return new global::Post.Views.SettingsPage(); }
+        private object Activate_59_DateFormatConverter() { return new global::Post.Converters.DateFormatConverter(); }
+        private object Activate_60_MainPageViewModel() { return new global::Post.ViewModels.MainPageViewModel(); }
+        private object Activate_61_MainPage() { return new global::Post.Views.MainPage(); }
+        private object Activate_62_SettingsPageViewModel() { return new global::Post.ViewModels.SettingsPageViewModel(); }
+        private object Activate_63_SettingsPartViewModel() { return new global::Post.ViewModels.SettingsPartViewModel(); }
+        private object Activate_64_AboutPartViewModel() { return new global::Post.ViewModels.AboutPartViewModel(); }
+        private object Activate_65_SettingsPage() { return new global::Post.Views.SettingsPage(); }
         private void MapAdd_2_StateItems(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.String, global::System.Object>)instance;
@@ -803,51 +806,58 @@ namespace Post.Post_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 59:   //  Post.ViewModels.MainPageViewModel
-                userType = new global::Post.Post_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Template10.Mvvm.ViewModelBase"));
-                userType.Activator = Activate_59_MainPageViewModel;
+            case 59:   //  Post.Converters.DateFormatConverter
+                userType = new global::Post.Post_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_59_DateFormatConverter;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 60:   //  Post.Views.MainPage
+            case 60:   //  Post.ViewModels.MainPageViewModel
+                userType = new global::Post.Post_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Template10.Mvvm.ViewModelBase"));
+                userType.Activator = Activate_60_MainPageViewModel;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 61:   //  Post.Views.MainPage
                 userType = new global::Post.Post_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_60_MainPage;
+                userType.Activator = Activate_61_MainPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 61:   //  Post.ViewModels.SettingsPageViewModel
+            case 62:   //  Post.ViewModels.SettingsPageViewModel
                 userType = new global::Post.Post_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Template10.Mvvm.ViewModelBase"));
-                userType.Activator = Activate_61_SettingsPageViewModel;
+                userType.Activator = Activate_62_SettingsPageViewModel;
                 userType.AddMemberName("SettingsPartViewModel");
                 userType.AddMemberName("AboutPartViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 62:   //  Post.ViewModels.SettingsPartViewModel
+            case 63:   //  Post.ViewModels.SettingsPartViewModel
                 userType = new global::Post.Post_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Template10.Mvvm.ViewModelBase"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 63:   //  Post.ViewModels.AboutPartViewModel
+            case 64:   //  Post.ViewModels.AboutPartViewModel
                 userType = new global::Post.Post_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Template10.Mvvm.ViewModelBase"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 64:   //  Post.Views.SettingsPage
+            case 65:   //  Post.Views.SettingsPage
                 userType = new global::Post.Post_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_64_SettingsPage;
+                userType.Activator = Activate_65_SettingsPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 65:   //  Post.Views.Splash
+            case 66:   //  Post.Views.Splash
                 userType = new global::Post.Post_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
                 userType.SetIsLocalType();
                 xamlType = userType;

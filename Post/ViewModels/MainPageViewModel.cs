@@ -10,15 +10,46 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml;
 using System.Collections.ObjectModel;
 using Windows.Foundation;
+using System.Diagnostics;
+using Windows.UI.Xaml.Data;
+using System.Globalization;
 
 namespace Post.ViewModels
 {
     public class MainPageViewModel : ViewModelBase
     {
-        public ObservableCollection<Note> Notes;
+        public ObservableCollection<CollectionRepresentation> NotesCollection = new ObservableCollection<CollectionRepresentation>();
+
         public MainPageViewModel()
         {
-            Notes = NoteManager.GetNotes();
+            BuildCollection();
+            
+        }
+
+        public void BuildCollection()
+        {
+            var list = NoteManager.GetNoteList();
+            NotesCollection.Clear();
+
+            foreach (Note n in list)
+            {
+                //If it's first note then create collection
+                if(NoteManager.isFirstNote(n.id))
+                {
+                    var collection = (new CollectionRepresentation { NoteCollection = getSingleCollection(n.id) });
+                    NotesCollection.Add(collection);
+                }
+            }
+            
+        }
+
+        public class CollectionRepresentation
+        {
+            public ObservableCollection<Note> NoteCollection { get; set; }
+        }
+        public ObservableCollection<Note> getSingleCollection(int id)
+        {
+            return NoteManager.GetSingleCollection(id);
         }
 
         public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> suspensionState)
@@ -49,6 +80,10 @@ namespace Post.ViewModels
         public void GotoAbout() =>
             NavigationService.Navigate(typeof(Views.SettingsPage), 2);
 
+        public void DebugPage()
+        {
+            
+        }
     }
 }
 

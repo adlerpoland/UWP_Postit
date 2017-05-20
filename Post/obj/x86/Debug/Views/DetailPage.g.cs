@@ -15,8 +15,7 @@ namespace Post.Views
         global::Windows.UI.Xaml.Markup.IComponentConnector,
         global::Windows.UI.Xaml.Markup.IComponentConnector2
     {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks"," 14.0.0.0")]
-        private static class XamlBindingSetters
+        internal class XamlBindingSetters
         {
             public static void Set_Template10_Controls_PageHeader_Frame(global::Template10.Controls.PageHeader obj, global::Windows.UI.Xaml.Controls.Frame value, string targetNullValue)
             {
@@ -36,7 +35,6 @@ namespace Post.Views
             }
         };
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks"," 14.0.0.0")]
         private class DetailPage_obj1_Bindings :
             global::Windows.UI.Xaml.Markup.IComponentConnector,
             IDetailPage_Bindings
@@ -96,15 +94,12 @@ namespace Post.Views
                 this.initialized = false;
             }
 
-            public bool SetDataRoot(global::System.Object newDataRoot)
+            // DetailPage_obj1_Bindings
+
+            public void SetDataRoot(global::Post.Views.DetailPage newDataRoot)
             {
                 this.bindingsTracking.ReleaseAllListeners();
-                if (newDataRoot != null)
-                {
-                    this.dataRoot = (global::Post.Views.DetailPage)newDataRoot;
-                    return true;
-                }
-                return false;
+                this.dataRoot = newDataRoot;
             }
 
             public void Loading(global::Windows.UI.Xaml.FrameworkElement src, object data)
@@ -136,7 +131,7 @@ namespace Post.Views
             }
             private void Update_Frame(global::Windows.UI.Xaml.Controls.Frame obj, int phase)
             {
-                if ((phase & ((1 << 0) | NOT_PHASED )) != 0)
+                if((phase & ((1 << 0) | NOT_PHASED )) != 0)
                 {
                     XamlBindingSetters.Set_Template10_Controls_PageHeader_Frame(this.obj7, obj, null);
                 }
@@ -161,7 +156,7 @@ namespace Post.Views
             }
             private void Update_ViewModel_Value(global::System.String obj, int phase)
             {
-                if ((phase & ((1 << 0) | NOT_PHASED | DATA_CHANGED)) != 0)
+                if((phase & ((1 << 0) | NOT_PHASED | DATA_CHANGED)) != 0)
                 {
                     XamlBindingSetters.Set_Windows_UI_Xaml_Controls_TextBlock_Text(this.obj8, obj, null);
                 }
@@ -174,16 +169,15 @@ namespace Post.Views
 
             private void UpdateFallback_ViewModel_Value(int phase)
             {
-                if ((phase & ((1 << 0) | NOT_PHASED | DATA_CHANGED)) != 0)
+                if((phase & ((1 << 0) | NOT_PHASED | DATA_CHANGED)) != 0)
                 {
                     XamlBindingSetters.Set_Windows_UI_Xaml_Controls_TextBlock_Text(this.obj8, "DesigntimeValue", null);
                 }
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks"," 14.0.0.0")]
             private class DetailPage_obj1_BindingsTracking
             {
-                private global::System.WeakReference<DetailPage_obj1_Bindings> WeakRefToBindingObj; 
+                global::System.WeakReference<DetailPage_obj1_Bindings> WeakRefToBindingObj; 
 
                 public DetailPage_obj1_BindingsTracking(DetailPage_obj1_Bindings obj)
                 {
@@ -198,7 +192,7 @@ namespace Post.Views
                 public void PropertyChanged_ViewModel(object sender, global::System.ComponentModel.PropertyChangedEventArgs e)
                 {
                     DetailPage_obj1_Bindings bindings;
-                    if (WeakRefToBindingObj.TryGetTarget(out bindings))
+                    if(WeakRefToBindingObj.TryGetTarget(out bindings))
                     {
                         string propName = e.PropertyName;
                         global::Post.ViewModels.DetailPageViewModel obj = sender as global::Post.ViewModels.DetailPageViewModel;
@@ -206,7 +200,7 @@ namespace Post.Views
                         {
                             if (obj != null)
                             {
-                                bindings.Update_ViewModel_Value(obj.Value, DATA_CHANGED);
+                                    bindings.Update_ViewModel_Value(obj.Value, DATA_CHANGED);
                             }
                             else
                             {

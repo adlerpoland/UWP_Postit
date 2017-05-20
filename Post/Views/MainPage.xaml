@@ -10,8 +10,13 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:vm="using:Post.ViewModels"
       xmlns:data="using:Post.Models"
+      xmlns:conv="using:Post.Converters" 
       mc:Ignorable="d">
 
+    <Page.Resources>
+        <conv:DateFormatConverter x:Name="DateToStringFormatConverter"/>
+    </Page.Resources>
+    
     <Page.DataContext>
         <vm:MainPageViewModel x:Name="ViewModel" />
     </Page.DataContext>
@@ -76,42 +81,59 @@
             </controls:PageHeader>
         </RelativePanel>
 
-        
+
 
         <!--<RelativePanel Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">-->
         <RelativePanel Grid.Row="1" HorizontalAlignment="Center">
-            <GridView ItemsSource="{x:Bind ViewModel.Notes}" CanDragItems="True" AllowDrop="True" CanReorderItems="True">
+            <GridView ItemsSource="{x:Bind ViewModel.NotesCollection}" CanDragItems="True" AllowDrop="True" CanReorderItems="True">
                 <GridView.ItemTemplate >
-                    <DataTemplate x:DataType="data:Note">
-                        <RelativePanel Height="200" Width="200" Margin="10,10,10,10">
-                            <RelativePanel.Background>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="#FF935920" Offset="0"/>
-                                    <GradientStop Color="#FFC59564" Offset="1"/>
-                                </LinearGradientBrush>
-                            </RelativePanel.Background>
-                            <TextBlock Name="header" Text="{x:Bind header}" Margin="5,0,5,0" Height="30" TextWrapping="NoWrap" HorizontalAlignment="Center" FontSize="20" FontWeight="ExtraBold" Foreground="#FFD6B900" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
-                            <TextBlock Name="content" Text="{x:Bind content}" Margin="5,0,5,0" Height="150" TextWrapping="Wrap" FontSize="16" FontStyle="Italic" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="header"/>
-                            <TextBlock Name="date" Text="{x:Bind date}" Margin="5,0,5,0" Height="20" TextWrapping="NoWrap" VerticalAlignment="Bottom" Foreground="Black" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
-                        </RelativePanel>
+                    <DataTemplate x:DataType="data:NoteCollecton">
+                        <ListView ItemsSource="{Binding NoteCollection}" Height="300" CanDragItems="True" AllowDrop="True" Header="Grab me" Margin="10,0,0,0">
+                            <!--<ListView ItemsSource="{Binding NoteCollection}" Height="300" CanDragItems="True" AllowDrop="True" CanReorderItems="True" Header="Collection"  Header="Grab me">-->
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="Padding" Value="0,0,0,-170"/>
+                                    <Setter Property="BorderThickness" Value="0"/>
+                                    <Setter Property="MinHeight" Value="20" />
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.ItemTemplate>
+                                <DataTemplate x:DataType="data:Note">
+                                    <StackPanel Height="200" Width="200" Margin="10,0,10,0" BorderThickness="2" BorderBrush="Red" RenderTransformOrigin="0.5,0.5">
+                                        <StackPanel.Background>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="#FF935920" Offset="0"/>
+                                                <GradientStop Color="#FFC59564" Offset="1"/>
+                                            </LinearGradientBrush>
+                                        </StackPanel.Background>
+                                        <TextBlock Name="header" Text="{Binding header}" Margin="5,0,5,0" Height="30" TextWrapping="NoWrap" HorizontalAlignment="Center" FontSize="20" FontWeight="ExtraBold" Foreground="#FFD6B900" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
+                                        <TextBlock Name="content" Text="{Binding content}" Margin="5,0,5,0" Height="150" TextWrapping="Wrap" FontSize="16" FontStyle="Italic" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="header"/>
+                                        <TextBlock Name="date" Text="{Binding date, Converter={StaticResource DateToStringFormatConverter}}" Margin="5,0,5,0" Height="20" TextWrapping="NoWrap" VerticalAlignment="Bottom" Foreground="Black" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True" HorizontalAlignment="Right"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
                     </DataTemplate>
                 </GridView.ItemTemplate>
             </GridView>
         </RelativePanel>
         <!--</RelativePanel>-->
-        <RelativePanel RelativePanel.AlignBottomWithPanel="True"
-                       RelativePanel.AlignLeftWithPanel="True"
-                       RelativePanel.AlignRightWithPanel="True"
-                       RelativePanel.AlignTopWithPanel="True"
-                       VerticalAlignment="Stretch"
-                       HorizontalAlignment="Right"
+        <RelativePanel VerticalAlignment="Stretch"
+                       HorizontalAlignment="Stretch"
                        Grid.Row="2">
+
+            <Button x:Name="debugButton"
+                    Click="{x:Bind ViewModel.DebugPage}"
+                    Content="Debug"  
+                    Width="200"
+                    VerticalAlignment="Stretch" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" />
 
             <Button x:Name="submitButton"
                     Click="{x:Bind ViewModel.GotoTaskPage}"
                     Content="New Task"  
                     Width="200"
-                    VerticalAlignment="Stretch" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True"/>
+                    VerticalAlignment="Stretch" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True" />
+
 
         </RelativePanel>
     </Grid>
