@@ -85,7 +85,19 @@
 
         <!--<RelativePanel Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">-->
         <RelativePanel Grid.Row="1" HorizontalAlignment="Center">
-            <GridView MinHeight="300" MinWidth="200" ItemsSource="{x:Bind ViewModel.NotesCollection}" CanDragItems="True" AllowDrop="True" CanReorderItems="True">
+            <GridView 
+                MinHeight="300" 
+                MinWidth="200" 
+                ItemsSource="{x:Bind ViewModel.NotesCollection}" 
+                CanDragItems="True" 
+                AllowDrop="True" 
+                CanReorderItems="True">
+                <GridView.ItemContainerStyle>
+                    <Style TargetType="GridViewItem">
+                        <Setter Property="BorderThickness" Value="3"/>
+                        <Setter Property="BorderBrush" Value="#19838383"/>
+                    </Style>
+                </GridView.ItemContainerStyle>
                 <GridView.ItemTemplate >
                     <DataTemplate x:DataType="data:NoteCollecton">
                         <ListView ItemsSource="{Binding NoteCollection}" 
@@ -108,7 +120,6 @@
                                     </LinearGradientBrush>
                                 </StackPanel.Background>
                             </StackPanel>
-                            <!--<ListView ItemsSource="{Binding NoteCollection}" Height="300" CanDragItems="True" AllowDrop="True" CanReorderItems="True" Header="Collection"  Header="Grab me">-->
                             <ListView.ItemContainerStyle>
                                 <Style TargetType="ListViewItem">
                                     <Setter Property="BorderThickness" Value="0"/>

@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\Patryk\documents\visual studio 2015\Projects\Post\Post\bin\x86\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-05-21T20:00:14.572</Modified>
+      <Modified>2017-05-21T20:12:40.954</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Patryk\documents\visual studio 2015\Projects\Post\Post\bin\x86\Debug\Post.exe">
       <PackagePath>Post.exe</PackagePath>
-      <Modified>2017-05-21T20:00:08.101</Modified>
+      <Modified>2017-05-21T20:12:34.443</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Patryk\.nuget\packages\Microsoft.CSharp\4.0.1\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -604,7 +604,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Patryk\documents\visual studio 2015\Projects\Post\Post\bin\x86\Debug\Post.xr.xml">
       <PackagePath>Post.xr.xml</PackagePath>
-      <Modified>2017-05-21T19:59:30.238</Modified>
+      <Modified>2017-05-21T20:11:31.019</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Patryk\.nuget\packages\Template10\1.1.12\lib\uap10.0\Template10Library\Template10Library.xr.xml">
       <PackagePath>Template10Library\Template10Library.xr.xml</PackagePath>
@@ -641,7 +641,7 @@
     <AppxPackagedFile Include="C:\Users\Patryk\documents\visual studio 2015\Projects\Post\Post\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-05-21T20:00:09.005</Modified>
+      <Modified>2017-05-21T20:12:35.347</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
