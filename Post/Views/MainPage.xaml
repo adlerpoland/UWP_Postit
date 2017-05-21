@@ -107,15 +107,15 @@
                             </ListView.ItemContainerStyle>
                             <ListView.ItemTemplate>
                                 <DataTemplate x:DataType="data:Note">
-                                    <StackPanel Height="200" Width="200" Margin="10,0,10,0" BorderThickness="2" BorderBrush="Red" RenderTransformOrigin="0.5,0.5">
+                                    <StackPanel Height="202" Width="200" Margin="10,0,10,0" BorderThickness="2" BorderBrush="#FF320000" RenderTransformOrigin="0.5,0.5">
                                         <StackPanel.Background>
                                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                                 <GradientStop Color="#FF935920" Offset="0"/>
                                                 <GradientStop Color="#FFC59564" Offset="1"/>
                                             </LinearGradientBrush>
                                         </StackPanel.Background>
-                                        <TextBlock Name="header" Text="{Binding header}" Margin="5,0,5,0" Height="30" TextWrapping="NoWrap" HorizontalAlignment="Center" FontSize="20" FontWeight="ExtraBold" Foreground="#FFD6B900" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
-                                        <TextBlock Name="content" Text="{Binding content}" Margin="5,0,5,0" Height="150" TextWrapping="Wrap" FontSize="16" FontStyle="Italic" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="header"/>
+                                        <TextBlock Name="header" Text="{Binding header}" Margin="5,5,5,5" Height="30" TextWrapping="NoWrap" HorizontalAlignment="Center" FontSize="20" FontWeight="ExtraBold" Foreground="#FFD6B900" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
+                                        <TextBlock Name="content" Text="{Binding content}" Margin="5,0,5,5" Height="135" TextWrapping="Wrap" FontSize="16" FontStyle="Italic" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="header"/>
                                         <TextBlock Name="date" Text="{Binding date, Converter={StaticResource DateToStringFormatConverter}}" Margin="5,0,5,0" Height="20" TextWrapping="NoWrap" VerticalAlignment="Bottom" Foreground="Black" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True" HorizontalAlignment="Right"/>
                                     </StackPanel>
                                 </DataTemplate>
@@ -125,6 +125,31 @@
                 </GridView.ItemTemplate>
             </GridView>
         </RelativePanel>
+        <Grid Grid.Row="1" Background="#B2000000">
+            <RelativePanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel Name="createNote" Height="200" Width="200" Margin="10,5,10,5">
+                    <StackPanel.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF935920" Offset="0"/>
+                            <GradientStop Color="#FFC59564" Offset="1"/>
+                        </LinearGradientBrush>
+                    </StackPanel.Background>
+                    <TextBox ToolTipService.ToolTip="Title" MaxLength="14" Name="header" Margin="5,5,5,5" Height="35" TextWrapping="NoWrap" HorizontalAlignment="Stretch" TextAlignment="Center" FontSize="20" FontWeight="ExtraBold" Foreground="#FFD6B900" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
+                    <TextBox ToolTipService.ToolTip="Your task" MaxLength="120" Name="content" Margin="5,0,5,4" Height="120" TextWrapping="Wrap" FontSize="16" FontStyle="Italic" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="header"/>
+                    <TextBox ToolTipService.ToolTip="Date (dd.mm.yyyy)" MaxLength="10" Name="date" Margin="5,0,5,0" Height="15" TextWrapping="NoWrap" VerticalAlignment="Bottom" Foreground="Black" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True" HorizontalAlignment="Right" TextAlignment="Right"/>
+                </StackPanel>
+                <Button x:Name="okButton"
+                        Margin="0,5,0,0"
+                        Content="Ok"  
+                        Width="80"
+                        RelativePanel.Below="createNote" RelativePanel.AlignRightWithPanel="True"/>
+                <Button x:Name="cancelButton"
+                        Margin="0,5,0,0"
+                        Content="Cancel"  
+                        Width="80"
+                        RelativePanel.Below="createNote" RelativePanel.AlignLeftWithPanel="True"/>
+            </RelativePanel>
+        </Grid>
         <!--</RelativePanel>-->
         <RelativePanel VerticalAlignment="Stretch"
                        HorizontalAlignment="Stretch"
