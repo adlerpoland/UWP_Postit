@@ -10,19 +10,19 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>012cfdbd-1a4a-42f2-8536-1bf73bee5260</PackageIdentityName>
     <PackageIdentityPublisher>CN=Patryk</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\Patryk\Documents\Visual Studio 2015\Projects\Post\Post\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Patryk\documents\visual studio 2015\Projects\Post\Post\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType></RemoteDeploymentType>
     <PackageRegistrationPath></PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Patryk\Documents\Visual Studio 2015\Projects\Post\Post\bin\x86\Debug\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Patryk\documents\visual studio 2015\Projects\Post\Post\bin\x86\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Patryk\Documents\Visual Studio 2015\Projects\Post\Post\bin\x86\Debug\Post.exe">
+    <AppxPackagedFile Include="C:\Users\Patryk\documents\visual studio 2015\Projects\Post\Post\bin\x86\Debug\Post.exe">
       <PackagePath>Post.exe</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Patryk\.nuget\packages\Microsoft.CSharp\4.0.1\lib\netcore50\Microsoft.CSharp.dll">
@@ -418,40 +418,40 @@
     <AppxPackagedFile Include="C:\Users\Patryk\.nuget\packages\NotificationsExtensions.UniversalApps\1.0.3\lib\netcore451\NotificationsExtensions.winmd">
       <PackagePath>NotificationsExtensions.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Patryk\Documents\Visual Studio 2015\Projects\Post\Post\Help.htm">
+    <AppxPackagedFile Include="C:\Users\Patryk\documents\visual studio 2015\Projects\Post\Post\Help.htm">
       <PackagePath>Help.htm</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Patryk\Documents\Visual Studio 2015\Projects\Post\Post\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\Patryk\documents\visual studio 2015\Projects\Post\Post\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Patryk\Documents\Visual Studio 2015\Projects\Post\Post\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Patryk\documents\visual studio 2015\Projects\Post\Post\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Patryk\Documents\Visual Studio 2015\Projects\Post\Post\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Patryk\documents\visual studio 2015\Projects\Post\Post\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Patryk\Documents\Visual Studio 2015\Projects\Post\Post\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Patryk\documents\visual studio 2015\Projects\Post\Post\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Patryk\Documents\Visual Studio 2015\Projects\Post\Post\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Patryk\documents\visual studio 2015\Projects\Post\Post\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Patryk\Documents\Visual Studio 2015\Projects\Post\Post\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\Patryk\documents\visual studio 2015\Projects\Post\Post\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Patryk\Documents\Visual Studio 2015\Projects\Post\Post\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\Patryk\documents\visual studio 2015\Projects\Post\Post\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Patryk\Documents\Visual Studio 2015\Projects\Post\Post\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Patryk\documents\visual studio 2015\Projects\Post\Post\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Patryk\Documents\Visual Studio 2015\Projects\Post\Post\bin\x86\Debug\Post.xr.xml">
+    <AppxPackagedFile Include="C:\Users\Patryk\documents\visual studio 2015\Projects\Post\Post\bin\x86\Debug\Post.xr.xml">
       <PackagePath>Post.xr.xml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Patryk\.nuget\packages\Template10\1.1.12\lib\uap10.0\Template10Library\Template10Library.xr.xml">
@@ -478,7 +478,7 @@
     <AppxPackagedFile Include="C:\Users\Patryk\.nuget\packages\Template10\1.1.12\lib\uap10.0\Template10Library\Themes\Resizer.xaml">
       <PackagePath>Template10Library\Themes\Resizer.xaml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Patryk\Documents\Visual Studio 2015\Projects\Post\Post\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Patryk\documents\visual studio 2015\Projects\Post\Post\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>

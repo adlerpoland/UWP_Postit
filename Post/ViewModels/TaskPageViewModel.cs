@@ -59,10 +59,9 @@ namespace Post.ViewModels
             }
             else
             {
-                IToastText04 notification = ToastContentFactory.CreateToastText04();
+                IToastText02 notification = ToastContentFactory.CreateToastText02();
                 notification.TextHeading.Text = "Validation error";
-                notification.TextBody1.Text = "Sorry but you've input wrong data!\n\n";
-                notification.TextBody2.Text = DateTime.Now.ToString("hh:mm:ss");
+                notification.TextBodyWrap.Text = "Sorry but you've input wrong data!";
                 notification.Duration = ToastDuration.Short;
 
                 ToastNotification not = new ToastNotification(notification.GetXml());

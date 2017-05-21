@@ -816,7 +816,12 @@ namespace Post.Post_XamlTypeInfo
             case 60:   //  Post.ViewModels.MainPageViewModel
                 userType = new global::Post.Post_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Template10.Mvvm.ViewModelBase"));
                 userType.Activator = Activate_60_MainPageViewModel;
+                userType.AddMemberName("Notificate");
+                userType.AddMemberName("taskHeader");
+                userType.AddMemberName("taskContent");
+                userType.AddMemberName("taskDate");
                 userType.AddMemberName("isRemoveVisible");
+                userType.AddMemberName("isNewTaskVisible");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -1792,22 +1797,72 @@ namespace Post.Post_XamlTypeInfo
             var that = (global::Post.ViewModels.DetailPageViewModel)instance;
             that.Value = (global::System.String)Value;
         }
-        private object get_90_MainPageViewModel_isRemoveVisible(object instance)
+        private object get_90_MainPageViewModel_Notificate(object instance)
+        {
+            var that = (global::Post.ViewModels.MainPageViewModel)instance;
+            return that.Notificate;
+        }
+        private void set_90_MainPageViewModel_Notificate(object instance, object Value)
+        {
+            var that = (global::Post.ViewModels.MainPageViewModel)instance;
+            that.Notificate = (global::System.Boolean)Value;
+        }
+        private object get_91_MainPageViewModel_taskHeader(object instance)
+        {
+            var that = (global::Post.ViewModels.MainPageViewModel)instance;
+            return that.taskHeader;
+        }
+        private void set_91_MainPageViewModel_taskHeader(object instance, object Value)
+        {
+            var that = (global::Post.ViewModels.MainPageViewModel)instance;
+            that.taskHeader = (global::System.String)Value;
+        }
+        private object get_92_MainPageViewModel_taskContent(object instance)
+        {
+            var that = (global::Post.ViewModels.MainPageViewModel)instance;
+            return that.taskContent;
+        }
+        private void set_92_MainPageViewModel_taskContent(object instance, object Value)
+        {
+            var that = (global::Post.ViewModels.MainPageViewModel)instance;
+            that.taskContent = (global::System.String)Value;
+        }
+        private object get_93_MainPageViewModel_taskDate(object instance)
+        {
+            var that = (global::Post.ViewModels.MainPageViewModel)instance;
+            return that.taskDate;
+        }
+        private void set_93_MainPageViewModel_taskDate(object instance, object Value)
+        {
+            var that = (global::Post.ViewModels.MainPageViewModel)instance;
+            that.taskDate = (global::System.String)Value;
+        }
+        private object get_94_MainPageViewModel_isRemoveVisible(object instance)
         {
             var that = (global::Post.ViewModels.MainPageViewModel)instance;
             return that.isRemoveVisible;
         }
-        private void set_90_MainPageViewModel_isRemoveVisible(object instance, object Value)
+        private void set_94_MainPageViewModel_isRemoveVisible(object instance, object Value)
         {
             var that = (global::Post.ViewModels.MainPageViewModel)instance;
             that.isRemoveVisible = (global::Windows.UI.Xaml.Visibility)Value;
         }
-        private object get_91_SettingsPageViewModel_SettingsPartViewModel(object instance)
+        private object get_95_MainPageViewModel_isNewTaskVisible(object instance)
+        {
+            var that = (global::Post.ViewModels.MainPageViewModel)instance;
+            return that.isNewTaskVisible;
+        }
+        private void set_95_MainPageViewModel_isNewTaskVisible(object instance, object Value)
+        {
+            var that = (global::Post.ViewModels.MainPageViewModel)instance;
+            that.isNewTaskVisible = (global::Windows.UI.Xaml.Visibility)Value;
+        }
+        private object get_96_SettingsPageViewModel_SettingsPartViewModel(object instance)
         {
             var that = (global::Post.ViewModels.SettingsPageViewModel)instance;
             return that.SettingsPartViewModel;
         }
-        private object get_92_SettingsPageViewModel_AboutPartViewModel(object instance)
+        private object get_97_SettingsPageViewModel_AboutPartViewModel(object instance)
         {
             var that = (global::Post.ViewModels.SettingsPageViewModel)instance;
             return that.AboutPartViewModel;
@@ -2425,22 +2480,52 @@ namespace Post.Post_XamlTypeInfo
                 xamlMember.Getter = get_89_DetailPageViewModel_Value;
                 xamlMember.Setter = set_89_DetailPageViewModel_Value;
                 break;
+            case "Post.ViewModels.MainPageViewModel.Notificate":
+                userType = (global::Post.Post_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Post.ViewModels.MainPageViewModel");
+                xamlMember = new global::Post.Post_XamlTypeInfo.XamlMember(this, "Notificate", "Boolean");
+                xamlMember.Getter = get_90_MainPageViewModel_Notificate;
+                xamlMember.Setter = set_90_MainPageViewModel_Notificate;
+                break;
+            case "Post.ViewModels.MainPageViewModel.taskHeader":
+                userType = (global::Post.Post_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Post.ViewModels.MainPageViewModel");
+                xamlMember = new global::Post.Post_XamlTypeInfo.XamlMember(this, "taskHeader", "String");
+                xamlMember.Getter = get_91_MainPageViewModel_taskHeader;
+                xamlMember.Setter = set_91_MainPageViewModel_taskHeader;
+                break;
+            case "Post.ViewModels.MainPageViewModel.taskContent":
+                userType = (global::Post.Post_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Post.ViewModels.MainPageViewModel");
+                xamlMember = new global::Post.Post_XamlTypeInfo.XamlMember(this, "taskContent", "String");
+                xamlMember.Getter = get_92_MainPageViewModel_taskContent;
+                xamlMember.Setter = set_92_MainPageViewModel_taskContent;
+                break;
+            case "Post.ViewModels.MainPageViewModel.taskDate":
+                userType = (global::Post.Post_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Post.ViewModels.MainPageViewModel");
+                xamlMember = new global::Post.Post_XamlTypeInfo.XamlMember(this, "taskDate", "String");
+                xamlMember.Getter = get_93_MainPageViewModel_taskDate;
+                xamlMember.Setter = set_93_MainPageViewModel_taskDate;
+                break;
             case "Post.ViewModels.MainPageViewModel.isRemoveVisible":
                 userType = (global::Post.Post_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Post.ViewModels.MainPageViewModel");
                 xamlMember = new global::Post.Post_XamlTypeInfo.XamlMember(this, "isRemoveVisible", "Windows.UI.Xaml.Visibility");
-                xamlMember.Getter = get_90_MainPageViewModel_isRemoveVisible;
-                xamlMember.Setter = set_90_MainPageViewModel_isRemoveVisible;
+                xamlMember.Getter = get_94_MainPageViewModel_isRemoveVisible;
+                xamlMember.Setter = set_94_MainPageViewModel_isRemoveVisible;
+                break;
+            case "Post.ViewModels.MainPageViewModel.isNewTaskVisible":
+                userType = (global::Post.Post_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Post.ViewModels.MainPageViewModel");
+                xamlMember = new global::Post.Post_XamlTypeInfo.XamlMember(this, "isNewTaskVisible", "Windows.UI.Xaml.Visibility");
+                xamlMember.Getter = get_95_MainPageViewModel_isNewTaskVisible;
+                xamlMember.Setter = set_95_MainPageViewModel_isNewTaskVisible;
                 break;
             case "Post.ViewModels.SettingsPageViewModel.SettingsPartViewModel":
                 userType = (global::Post.Post_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Post.ViewModels.SettingsPageViewModel");
                 xamlMember = new global::Post.Post_XamlTypeInfo.XamlMember(this, "SettingsPartViewModel", "Post.ViewModels.SettingsPartViewModel");
-                xamlMember.Getter = get_91_SettingsPageViewModel_SettingsPartViewModel;
+                xamlMember.Getter = get_96_SettingsPageViewModel_SettingsPartViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Post.ViewModels.SettingsPageViewModel.AboutPartViewModel":
                 userType = (global::Post.Post_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Post.ViewModels.SettingsPageViewModel");
                 xamlMember = new global::Post.Post_XamlTypeInfo.XamlMember(this, "AboutPartViewModel", "Post.ViewModels.AboutPartViewModel");
-                xamlMember.Getter = get_92_SettingsPageViewModel_AboutPartViewModel;
+                xamlMember.Getter = get_97_SettingsPageViewModel_AboutPartViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             }

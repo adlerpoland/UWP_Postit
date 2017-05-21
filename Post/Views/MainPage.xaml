@@ -89,20 +89,31 @@
                 <GridView.ItemTemplate >
                     <DataTemplate x:DataType="data:NoteCollecton">
                         <ListView ItemsSource="{Binding NoteCollection}" 
-                                  Height="300" Header="Grab me" 
+                                  Height="300" 
+                                  Padding="0,10,10,180"
                                   Margin="10,0,0,0" 
                                   CanDragItems="True" 
                                   AllowDrop="True"
                                   DragItemsStarting="ViewModel.ListView_DragItemsStarting"
                                   DragOver="ViewModel.ListView_DragOver"   
                                   DragItemsCompleted="ViewModel.ListView_DragItemsCompleted"
-                                  Drop="ViewModel.ListView_Drop"> 
+                                  Drop="ViewModel.ListView_Drop"
+                                  ScrollViewer.VerticalScrollMode="Auto"
+                                  ScrollViewer.VerticalScrollBarVisibility="Auto">
+                            <StackPanel Height="400" Width="200">
+                                <StackPanel.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF0BEC00" Offset="0"/>
+                                        <GradientStop Color="#FF002BBB" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </StackPanel.Background>
+                            </StackPanel>
                             <!--<ListView ItemsSource="{Binding NoteCollection}" Height="300" CanDragItems="True" AllowDrop="True" CanReorderItems="True" Header="Collection"  Header="Grab me">-->
                             <ListView.ItemContainerStyle>
                                 <Style TargetType="ListViewItem">
-                                    <Setter Property="Padding" Value="0,0,0,-170"/>
                                     <Setter Property="BorderThickness" Value="0"/>
                                     <Setter Property="MinHeight" Value="20" />
+                                    <Setter Property="Padding" Value="0,0,0,-170"/>
                                 </Style>
                             </ListView.ItemContainerStyle>
                             <ListView.ItemTemplate>
@@ -125,7 +136,7 @@
                 </GridView.ItemTemplate>
             </GridView>
         </RelativePanel>
-        <Grid Grid.Row="1" Background="#B2000000">
+        <Grid Visibility="{Binding isNewTaskVisible,Mode=Twoway}" Grid.Row="1" Background="#B2000000">
             <RelativePanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <StackPanel Name="createNote" Height="200" Width="200" Margin="10,5,10,5">
                     <StackPanel.Background>
@@ -134,16 +145,20 @@
                             <GradientStop Color="#FFC59564" Offset="1"/>
                         </LinearGradientBrush>
                     </StackPanel.Background>
-                    <TextBox ToolTipService.ToolTip="Title" MaxLength="14" Name="header" Margin="5,5,5,5" Height="35" TextWrapping="NoWrap" HorizontalAlignment="Stretch" TextAlignment="Center" FontSize="20" FontWeight="ExtraBold" Foreground="#FFD6B900" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
-                    <TextBox ToolTipService.ToolTip="Your task" MaxLength="120" Name="content" Margin="5,0,5,4" Height="120" TextWrapping="Wrap" FontSize="16" FontStyle="Italic" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="header"/>
-                    <TextBox ToolTipService.ToolTip="Date (dd.mm.yyyy)" MaxLength="10" Name="date" Margin="5,0,5,0" Height="15" TextWrapping="NoWrap" VerticalAlignment="Bottom" Foreground="Black" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True" HorizontalAlignment="Right" TextAlignment="Right"/>
+                    <TextBox ToolTipService.ToolTip="Tytul (od 2 do 12 znaków)" MaxLength="12" Text="{Binding taskHeader,Mode=Twoway}" Name="newHeader" Margin="5,5,5,5" Height="35" TextWrapping="NoWrap" HorizontalAlignment="Stretch" TextAlignment="Center" FontSize="20" FontWeight="ExtraBold" Foreground="#FFD6B900" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
+                    <TextBox ToolTipService.ToolTip="Tresc (od 5 do 120 znaków)" MaxLength="120" Text="{Binding taskContent,Mode=Twoway}" Name="newContent" Margin="5,0,5,4" Height="120" TextWrapping="Wrap" FontSize="16" FontStyle="Italic" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="header"/>
+                    <TextBox ToolTipService.ToolTip="Data (format dd.mm.yyyy)" MaxLength="10" Text="{Binding taskDate,Mode=Twoway}" Name="newDate" Margin="5,0,5,0" Height="15" TextWrapping="NoWrap" VerticalAlignment="Bottom" Foreground="Black" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True" HorizontalAlignment="Right" TextAlignment="Right"/>
                 </StackPanel>
                 <Button x:Name="okButton"
+                        Click="{x:Bind ViewModel.SubmitNewTask}"
+                        ToolTipService.ToolTip="Akceptuj"
                         Margin="0,5,0,0"
                         Content="Ok"  
                         Width="80"
                         RelativePanel.Below="createNote" RelativePanel.AlignRightWithPanel="True"/>
                 <Button x:Name="cancelButton"
+                        Click="{x:Bind ViewModel.CancelNewTask}"
+                        ToolTipService.ToolTip="Anuluj"
                         Margin="0,5,0,0"
                         Content="Cancel"  
                         Width="80"
@@ -161,8 +176,8 @@
                     Width="200"
                     VerticalAlignment="Stretch" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" />
 
-            <Button x:Name="submitButton"
-                    Click="{x:Bind ViewModel.GotoTaskPage}"
+            <Button x:Name="newTaskButton"
+                    Click="{x:Bind ViewModel.CreateNewTask}"
                     Content="New Task"  
                     Width="200"
                     VerticalAlignment="Stretch" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True" />
