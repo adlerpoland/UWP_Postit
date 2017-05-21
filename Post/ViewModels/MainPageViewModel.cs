@@ -75,11 +75,11 @@ namespace Post.ViewModels
             set { _isNewTaskVisible = value; RaisePropertyChanged("isNewTaskVisible"); }
         }
 
+        //VIEWMODEL ON START
         public MainPageViewModel()
         {
             BuildCollection();
             NotificateAboutUpcomingTask();
-            Debug.WriteLine("TEST");
         }
 
         public void BuildCollection()
@@ -185,30 +185,45 @@ namespace Post.ViewModels
                 {
                     objectWasMoved = true;
 
-                    //IF IS PARENT
+                    //IF IS PARENT 0
                     if (source[0] == movedObject)
                     {
                         //GET OBJECT AND CHILDREN AND ADD
                         foreach (Note n in source)
                         {
+                            n.header = RemoveHeaderCount(n.header);
                             listViewItemsSource.Add(n);
                         }
 
                         //CHECK IF OBJECT IS STILL PARENT
                         Note firstChild = listViewItemsSource[0];
 
+                        //IS NOT
                         if (firstChild != movedObject)
                         {
+                            int i = 1;
                             foreach (Note child in listViewItemsSource)
                             {
-                                child.parentid = firstChild.id;
+                                if(child.id != firstChild.id)
+                                {
+                                    child.parentid = firstChild.id;
+                                }
+                                child.header = RemoveHeaderCount(child.header);
+                                child.header = child.header + " #" + i++;
                             }
                         }
+                        //IS STILL PARENT
                         else
                         {
+                            int i = 1;
                             foreach (Note child in listViewItemsSource)
                             {
-                                child.parentid = movedObject.id;
+                                if (child.id != movedObject.id)
+                                {
+                                    child.parentid = firstChild.id;
+                                }
+                                child.header = RemoveHeaderCount(child.header);
+                                child.header = child.header + " #" + i++;
                             }
                             movedObject.parentid = 0;
                         }
@@ -223,7 +238,11 @@ namespace Post.ViewModels
                             if (n.id == movedObject.id)
                                 below = true;
                             if (below)
+                            {
+                                n.header = RemoveHeaderCount(n.header);
+                                //n.header = n.header + " #" + source.Count + 1;
                                 listViewItemsSource.Add(n);
+                            }
                         }
 
                         //CHECK IF OBJECT IS PARENT
@@ -231,16 +250,28 @@ namespace Post.ViewModels
 
                         if (firstChild != movedObject)
                         {
+                            int i = 1;
                             foreach (Note child in listViewItemsSource)
                             {
-                                child.parentid = firstChild.id;
+                                if (child.id != firstChild.id)
+                                {
+                                    child.parentid = firstChild.id;
+                                }
+                                child.header = RemoveHeaderCount(child.header);
+                                child.header = child.header + " #" + i++;
                             }
                         }
                         else
                         {
+                            int i = 1;
                             foreach (Note child in listViewItemsSource)
                             {
-                                child.parentid = movedObject.id;
+                                if (child.id != movedObject.id)
+                                {
+                                    child.parentid = firstChild.id;
+                                }
+                                child.header = RemoveHeaderCount(child.header);
+                                child.header = child.header + " #" + i++;
                             }
                             movedObject.parentid = 0;
                         }
@@ -249,7 +280,7 @@ namespace Post.ViewModels
                     //SCROLL TO BOTTOM
                     destinationListView.SelectedIndex = destinationListView.Items.Count - 1;
                     destinationListView.ScrollIntoView(destinationListView.SelectedItem);
-                    
+                    destinationListView.SelectedIndex = -1;
                 }
                 else
                 {
@@ -354,6 +385,11 @@ namespace Post.ViewModels
         public void GotoAbout() =>
             NavigationService.Navigate(typeof(Views.SettingsPage), 2);
 
+        public String RemoveHeaderCount(String h)
+        {
+            return h.Split('#')[0].Trim();
+        }
+
         
         public void SubmitNewTask()
         {
@@ -366,6 +402,9 @@ namespace Post.ViewModels
             {
                 //UKRYJ TWORZENIE KARTECZKi
                 isNewTaskVisible = Visibility.Collapsed;
+                taskHeader = "";
+                taskContent = "";
+                taskDate = "";
 
                 //STWORZ DATE ZE STRINGA
                 DateTime output;
@@ -374,6 +413,9 @@ namespace Post.ViewModels
                 //UTWORZ KARTECZKE
                 int lastId = GetLastID();
                 Note custom = new Note { id = lastId, parentid = 0, header = head, content = cont, date = output };
+
+                //ADD #1
+                custom.header = custom.header + " #1";
 
                 //UTWÓRZ NOW¥ LISTE
                 var empty = new CollectionRepresentation { NoteCollection = new ObservableCollection<Note>() };
@@ -385,7 +427,7 @@ namespace Post.ViewModels
                 //WYSWIETL KOMUNIKAT SUKCESU
                 IToastText02 notification = ToastContentFactory.CreateToastText02();
                 notification.TextHeading.Text = "Sukces";
-                notification.TextBodyWrap.Text = "Utworzono now¹ karteczkê! o id = "+lastId;
+                notification.TextBodyWrap.Text = "Utworzono now¹ karteczkê!";
                 notification.Duration = ToastDuration.Short;
 
                 ToastNotification not = new ToastNotification(notification.GetXml());
@@ -410,6 +452,10 @@ namespace Post.ViewModels
             {
                 return "Tytu³ jest z³ej d³ugoœci";
             }
+            else if(h.Contains('#'))
+            {
+                return "U¿yto niedozwolonego znaku!";
+            }
             else if(c.Length < 5 || c.Length > 120)
             {
                 return "Treœæ jest z³ej d³ugoœci";
@@ -426,8 +472,7 @@ namespace Post.ViewModels
                     else
                     {
                         return "true";
-                    }
-                    
+                    }           
                 }
                 else
                 {

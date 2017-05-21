@@ -50,13 +50,13 @@ namespace Post.Models
             {             
                 if(n.id == id && n.parentid == 0)
                 {
-                    //n.header = n.header + " " + i.ToString() + "#";
+                    n.header = n.header + " #" + i.ToString();
                     collection.Add(n);
                 }
                 else if(n.parentid == id)
                 {
                     i++;
-                    //n.header = n.header + " " + i.ToString() + "#";
+                    n.header = n.header + " #" + i.ToString();
                     collection.Add(n);
                 }
                 
@@ -70,56 +70,21 @@ namespace Post.Models
         {
             var list = new List<Note>();
 
-            list.Add(new Note { id = 1, parentid = 0, header = "Clean wardrobe", content = "Clean that ugly wardrobe in bedroom", date = new DateTime(2017, 05, 28) });
+            list.Add(new Note { id = 1, parentid = 0, header = "Clean stuff", content = "Clean that ugly wardrobe in bedroom", date = new DateTime(2017, 05, 28) });
             list.Add(new Note { id = 2, parentid = 1, header = "Fix car", content = "Take some time to fix your mother's car", date = new DateTime(2017, 05, 29) });
-            list.Add(new Note { id = 3, parentid = 1, header = "End UWP project", content = "End your uwp project", date = new DateTime(2017, 06, 02) });
+            list.Add(new Note { id = 3, parentid = 1, header = "End project", content = "End your uwp project", date = new DateTime(2017, 06, 02) });
             list.Add(new Note { id = 4, parentid = 0, header = "Buy camera", content = "Find some cool camera for your trip", date = new DateTime(2017, 05, 28) });
-            list.Add(new Note { id = 5, parentid = 0, header = "Dad birthday!", content = "Call him", date = new DateTime(2017, 06, 04) });
+            list.Add(new Note { id = 5, parentid = 0, header = "Birthday!", content = "Call your dad!", date = new DateTime(2017, 06, 04) });
             list.Add(new Note { id = 6, parentid = 0, header = "Get mail", content = "Take that mail from an office", date = new DateTime(2017, 06, 05) });
-            list.Add(new Note { id = 7, parentid = 0, header = "Return stolen bike to Jimmy", content = "Jimmy wants his bike", date = new DateTime(2017, 06, 05) });
-            list.Add(new Note { id = 8, parentid = 7, header = "This is the longest note available", content = "Lorum ipsum blah blah blah 123 flyingflyingasdbnasdajnsdaasdf test dasdas gasda gasd agasd asdadw dawd adasd asd a dsasda sdas dasd asdasdasddddsas h hh fg erw", date = new DateTime(2017, 06, 05) });
-            list.Add(new Note { id = 9, parentid = 1, header = "End UWP project", content = "End your uwp project", date = new DateTime(2017, 06, 02) });
-            list.Add(new Note { id = 10, parentid = 1, header = "End UWP project", content = "End your uwp project", date = new DateTime(2017, 06, 02) });
-            list.Add(new Note { id = 11, parentid = 1, header = "End UWP project", content = "End your uwp project", date = new DateTime(2017, 06, 02) });
-            list.Add(new Note { id = 12, parentid = 1, header = "End UWP project", content = "End your uwp project", date = new DateTime(2017, 06, 02) });
-            list.Add(new Note { id = 13, parentid = 1, header = "End UWP project", content = "End your uwp project", date = new DateTime(2017, 06, 02) });
+            list.Add(new Note { id = 7, parentid = 0, header = "Return bike", content = "Jimmy wants his bike back", date = new DateTime(2017, 06, 05) });
+            list.Add(new Note { id = 8, parentid = 7, header = "Long note", content = "Lorum ipsum blah blah blah 123 flyingflyingasdbnasdajnsdaasdf test dasa sdas dasd asdasdasddddsas h hh fg erwa asd asdaa", date = new DateTime(2017, 06, 05) });
+            list.Add(new Note { id = 9, parentid = 1, header = "Clean garage", content = "Today you're gonna clean garage :)", date = new DateTime(2017, 06, 02) });
+            list.Add(new Note { id = 10, parentid = 1, header = "Clean bedrm", content = "Bedroom today ;o", date = new DateTime(2017, 06, 02) });
+            list.Add(new Note { id = 11, parentid = 1, header = "Clean wc", content = "Yes, that part of house today", date = new DateTime(2017, 06, 02) });
+            list.Add(new Note { id = 12, parentid = 1, header = "Clean garden", content = "Finally something better to do", date = new DateTime(2017, 06, 02) });
+            list.Add(new Note { id = 13, parentid = 1, header = "Free time", content = "Today you can enjoy your free time", date = new DateTime(2017, 06, 02) });
 
             return list;
-        }
-        public static ObservableCollection<Note> GetChildren(int id)
-        {
-            var collection = new ObservableCollection<Note>();
-
-            var list = GetNoteList();
-
-            int parent = -1;
-            foreach (Note n in list)
-            {
-                if (n.id == id)
-                {
-                    parent = n.parentid;
-                }
-                else if (n.parentid == parent)
-                {
-                    collection.Add(n);
-                }
-            }
-
-            return collection;
-        }
-
-        public static ObservableCollection<int> GetNotesCollection()
-        {
-            var list = GetNoteList();
-
-            var collection = new ObservableCollection<int>();
-
-            foreach(Note n in list)
-            {
-                collection.Add(n.id);
-            }
-
-            return collection;
         }
     }
 }
