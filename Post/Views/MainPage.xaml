@@ -23,16 +23,16 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.2*"/>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition MinHeight="30"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
 
 
-        <RelativePanel Grid.Column="0">
+        <RelativePanel Grid.Column="0" MinHeight="50">
 
             <VisualStateManager.VisualStateGroups>
                 <VisualStateGroup x:Name="AdaptiveVisualStateGroup">
@@ -86,7 +86,7 @@
         <!--<RelativePanel Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">-->
         <RelativePanel Grid.Row="1" HorizontalAlignment="Center">
             <GridView 
-                MinHeight="300" 
+                MinHeight="200" 
                 MinWidth="200" 
                 ItemsSource="{x:Bind ViewModel.NotesCollection}" 
                 CanDragItems="True" 
@@ -146,6 +146,20 @@
                     </DataTemplate>
                 </GridView.ItemTemplate>
             </GridView>
+            <UserControl x:Name="removeControl"
+                         Width="100" 
+                         HorizontalAlignment="Center" 
+                         VerticalAlignment="Stretch" 
+                         RelativePanel.AlignTopWithPanel="True" 
+                         RelativePanel.AlignBottomWithPanel="True" 
+                         RelativePanel.AlignLeftWithPanel="True" 
+                         RelativePanel.AlignRightWithPanel="True"
+                         AllowDrop="True"
+                         DragOver="ViewModel.Remove_DragOver"   
+                         Drop="ViewModel.Remove_Drop"
+                         Visibility="{Binding isRemoveVisible,Mode=Twoway}">
+                <TextBlock x:Name="textBlock" Height="50" HorizontalAlignment="Stretch" Text="(X)" VerticalAlignment="Bottom" FontSize="36" FontWeight="Bold" TextAlignment="Center"/>
+            </UserControl>
         </RelativePanel>
         <Grid Visibility="{Binding isNewTaskVisible,Mode=Twoway}" Grid.Row="1" Background="#B2000000">
             <RelativePanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -181,33 +195,11 @@
                        HorizontalAlignment="Stretch"
                        Grid.Row="2">
 
-            <Button x:Name="debugButton"
-                    Click="{x:Bind ViewModel.DebugPage}"
-                    Content="Debug"  
-                    Width="200"
-                    VerticalAlignment="Stretch" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" />
-
             <Button x:Name="newTaskButton"
                     Click="{x:Bind ViewModel.CreateNewTask}"
                     Content="New Task"  
-                    Width="200"
+                    MinWidth="180"
                     VerticalAlignment="Stretch" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True" />
-
-            <UserControl x:Name="removeControl"
-                         Width="100" 
-                         HorizontalAlignment="Center" 
-                         VerticalAlignment="Stretch" 
-                         RelativePanel.AlignTopWithPanel="True" 
-                         RelativePanel.AlignBottomWithPanel="True" 
-                         RelativePanel.AlignLeftWithPanel="True" 
-                         RelativePanel.AlignRightWithPanel="True"
-                         AllowDrop="True"
-                         DragOver="ViewModel.Remove_DragOver"   
-                         Drop="ViewModel.Remove_Drop"
-                         Visibility="{Binding isRemoveVisible,Mode=Twoway}">
-                <TextBlock x:Name="textBlock" HorizontalAlignment="Stretch" Text="(X)" VerticalAlignment="Stretch" FontSize="36" FontWeight="Bold" TextAlignment="Center"/>
-            </UserControl>
-
         </RelativePanel>
     </Grid>
 </Page>

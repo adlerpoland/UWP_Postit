@@ -10,8 +10,6 @@ namespace Post.Models
     public class Note
     {
         public int id { get; set; }
-        public int x { get; set; }
-        public int y { get; set; }
         public String header { get; set; }
         public String content { get; set; }
         public DateTime date { get; set; }

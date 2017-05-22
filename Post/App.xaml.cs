@@ -42,7 +42,7 @@ namespace Post
         {
             // TODO: add your long-running task here
             await NavigationService.NavigateAsync(typeof(Views.MainPage));
-            ApplicationView.GetForCurrentView().SetPreferredMinSize(new Size(500, 500));
+            ApplicationView.GetForCurrentView().SetPreferredMinSize(new Size(500, 400));
         }
     }
 }

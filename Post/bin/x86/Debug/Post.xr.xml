@@ -4,11 +4,11 @@
     <RootInterface FullName="Windows.UI.Xaml.Data.IValueConverter" />
   </Roots.Interfaces>
   <Roots.PropertyPathNames>
-    <RootPropertyPathName Name="isRemoveVisible" />
     <RootPropertyPathName Name="isNewTaskVisible" />
     <RootPropertyPathName Name="taskDate" />
     <RootPropertyPathName Name="taskContent" />
     <RootPropertyPathName Name="taskHeader" />
+    <RootPropertyPathName Name="isRemoveVisible" />
     <RootPropertyPathName Name="NoteCollection" />
     <RootPropertyPathName Name="date" />
     <RootPropertyPathName Name="content" />
@@ -120,12 +120,12 @@
       <RootProperty Name="Foreground" />
       <RootProperty Name="Text" />
       <RootProperty Name="Style" />
+      <RootProperty Name="Height" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="FontSize" />
       <RootProperty Name="FontWeight" />
       <RootProperty Name="TextAlignment" />
       <RootProperty Name="Name" />
-      <RootProperty Name="Height" />
       <RootProperty Name="TextWrapping" />
       <RootProperty Name="FontStyle" />
       <RootProperty Name="Inlines" />
@@ -149,6 +149,7 @@
       <RootProperty Name="Children" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Background" />
+      <RootProperty Name="MinHeight" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="DataContext" />
       <RootMethod Name="GetAlignBottomWithPanel" />
@@ -175,6 +176,7 @@
       <RootProperty Name="Content" />
       <RootProperty Name="Width" />
       <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="MinWidth" />
       <RootProperty Name="Margin" />
       <RootProperty Name="Command" />
       <RootEvent Name="Click" />

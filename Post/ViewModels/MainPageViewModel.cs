@@ -16,6 +16,7 @@ using System.Globalization;
 using Windows.ApplicationModel.DataTransfer;
 using NotificationsExtensions.ToastContent;
 using Windows.UI.Notifications;
+using System.IO;
 
 namespace Post.ViewModels
 {
@@ -30,8 +31,30 @@ namespace Post.ViewModels
         ObservableCollection<Note> source;
 
         //NOTIFICATION ON START
-        private bool notificate = true;
+        private bool notificate = false;
 
+        //------------------------------------------------------
+        //VIEWMODEL ON START------------------------------------
+        //------------------------------------------------------
+        public MainPageViewModel()
+        {
+            BuildCollection();
+            NotificateAboutUpcomingTask();
+            CreateDatabase();
+        }
+
+        public static void CreateDatabase()
+        {
+            var path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "db.sqlite");
+            Debug.WriteLine(path);
+            using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path))
+            {
+                conn.CreateTable<Note>();
+            }
+            Debug.WriteLine(path);
+        }
+
+        ////NOTIFICATION
         public bool Notificate
         {
             get { return notificate; }
@@ -73,13 +96,6 @@ namespace Post.ViewModels
         {
             get { return _isNewTaskVisible; }
             set { _isNewTaskVisible = value; RaisePropertyChanged("isNewTaskVisible"); }
-        }
-
-        //VIEWMODEL ON START
-        public MainPageViewModel()
-        {
-            BuildCollection();
-            NotificateAboutUpcomingTask();
         }
 
         public void BuildCollection()
