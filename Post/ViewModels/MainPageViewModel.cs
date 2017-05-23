@@ -457,7 +457,7 @@ namespace Post.ViewModels
             NavigationService.Navigate(typeof(Views.SettingsPage), 0);
 
         public void GotoAbout() =>
-            NavigationService.Navigate(typeof(Views.SettingsPage), 2);
+            NavigationService.Navigate(typeof(Views.SettingsPage), 0);
         #endregion
 
         #region GetSetVariables

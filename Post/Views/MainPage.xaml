@@ -68,18 +68,15 @@
             </VisualStateManager.VisualStateGroups>
 
             <controls:PageHeader x:Name="pageHeader"
+                                 Height="55"
                              RelativePanel.AlignLeftWithPanel="True"
                              RelativePanel.AlignRightWithPanel="True"
                              RelativePanel.AlignTopWithPanel="True"
                              Text="Post it - Wall" Background="#FFB4435D">
 
-                <!--  secondary commands  -->
-                <controls:PageHeader.SecondaryCommands>
-                    <AppBarButton Click="{x:Bind ViewModel.GotoSettings}" Label="Settings" />
-                    <AppBarButton Click="{x:Bind ViewModel.GotoAbout}" Label="About" />
-                    <AppBarButton Click="{x:Bind ViewModel.DefaultCollection}" Label="Load example data" />
-                </controls:PageHeader.SecondaryCommands>
-
+                <AppBarButton Icon="Setting" Click="{x:Bind ViewModel.GotoSettings}" Label="Settings" Width="80"/>
+                <AppBarButton Icon="Refresh" Click="{x:Bind ViewModel.DefaultCollection}" Label="Load example" Width="80" />
+                
             </controls:PageHeader>
         </RelativePanel>
 
