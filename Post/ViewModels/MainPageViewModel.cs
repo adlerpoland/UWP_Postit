@@ -23,6 +23,7 @@ namespace Post.ViewModels
 {
     public class MainPageViewModel : ViewModelBase
     {
+        #region Properties
         //DB
         private SQLite.Net.SQLiteConnection conn;
 
@@ -43,6 +44,18 @@ namespace Post.ViewModels
         //USE DB
         private bool localdatabase = true;
 
+        //CREATING NEW TASK
+        private String _header = "";
+        private String _content = "";
+        private DateTime _date = new DateTime();
+
+        //VISIBILITY
+        private Visibility _isRemoveVisible = Visibility.Collapsed;
+        private Visibility _isNewTaskVisible = Visibility.Collapsed;
+
+        #endregion
+
+        #region Constructors
         //------------------------------------------------------
         //VIEWMODEL ON START------------------------------------
         //------------------------------------------------------
@@ -68,22 +81,13 @@ namespace Post.ViewModels
 
             Application.Current.Suspending += new SuspendingEventHandler(App_Suspending);
         }
-
-        //DELAY TIMER
-        public static void DelayAction(int millisecond, Action action)
+        public class CollectionRepresentation
         {
-            var timer = new DispatcherTimer();
-            timer.Tick += delegate
-
-            {
-                action.Invoke();
-                timer.Stop();
-            };
-
-            timer.Interval = TimeSpan.FromMilliseconds(millisecond);
-            timer.Start();
+            public ObservableCollection<Note> NoteCollection { get; set; }
         }
+        #endregion
 
+        #region Database
         //CREATE DB
         public void CreateDatabase()
         {
@@ -91,7 +95,7 @@ namespace Post.ViewModels
 
             conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path);
             conn.CreateTable<Note>();
-            Debug.WriteLine("DB path: "+path);
+            Debug.WriteLine("DB path: " + path);
         }
 
         //DROP DB NOTES
@@ -106,9 +110,10 @@ namespace Post.ViewModels
         public void InsertDatabase(ObservableCollection<Note> collection)
         {
             int i = 0;
-            foreach(Note n in collection)
+            foreach (Note n in collection)
             {
                 n.header = RemoveHeaderCount(n.header);
+                Debug.WriteLine(n.header + " DATE: " + n.date.ToString());
                 conn.Insert(n);
                 i++;
             }
@@ -120,26 +125,28 @@ namespace Post.ViewModels
         {
             int i = 0;
             NotesCollection.Clear();
-        
+
             var query = conn.Table<Note>();
             foreach (Note n in query)
             {
-                if(n.parentid == 0)
+                if (n.parentid == 0)
                 {
                     var collect = new CollectionRepresentation { NoteCollection = new ObservableCollection<Note>() };
 
                     n.header = n.header + " #1";
                     collect.NoteCollection.Add(n);
+                    Debug.WriteLine("READ: " + n.header + " DATE: " + n.date.ToString());
                     int j = 2;
                     int parentID = n.id;
-                    foreach(Note child in query)
+                    foreach (Note child in query)
                     {
                         if (child.parentid == parentID)
                         {
                             child.header = child.header + " #" + j++;
-                            collect.NoteCollection.Add(child); 
+                            Debug.WriteLine("READ: " + child.header + " DATE: " + child.date.ToString());
+                            collect.NoteCollection.Add(child);
                         }
-                            
+
                     }
                     NotesCollection.Add(collect);
                 }
@@ -160,87 +167,14 @@ namespace Post.ViewModels
         }
 
         //Save db on application exit
-        void App_Suspending(Object sender,Windows.ApplicationModel.SuspendingEventArgs e)
+        void App_Suspending(Object sender, Windows.ApplicationModel.SuspendingEventArgs e)
         {
             Debug.WriteLine("APP IS CLOSING SAVING DATA TO DB");
             Savetodb();
         }
+        #endregion
 
-        ////NOTIFICATION
-        public bool Notificate
-        {
-            get { return notificate; }
-            set { notificate = value; }
-        }
-
-        //CREATING NEW TASK
-        private String _header = "";
-        private String _content = "";
-        private DateTime _date = new DateTime();
-
-        public String taskHeader
-        {
-            get { return _header; }
-            set { _header = value; RaisePropertyChanged("taskHeader"); }
-        }
-        public String taskContent
-        {
-            get { return _content; }
-            set { _content = value; RaisePropertyChanged("taskContent"); }
-        }
-        public DateTime taskDate
-        {
-            get { return _date; }
-            set { _date = value; RaisePropertyChanged("taskDate"); }
-        }
-
-        public DateTime minDate
-        {
-            get { return mindate; }
-            set { mindate = value; RaisePropertyChanged("minDate"); }
-        }
-
-        //VISIBILITY
-        private Visibility _isRemoveVisible = Visibility.Collapsed;
-        private Visibility _isNewTaskVisible = Visibility.Collapsed;
-
-        public Visibility isRemoveVisible
-        {
-            get { return _isRemoveVisible; }
-            set { _isRemoveVisible = value; RaisePropertyChanged("isRemoveVisible"); }
-        }
-
-        public Visibility isNewTaskVisible
-        {
-            get { return _isNewTaskVisible; }
-            set { _isNewTaskVisible = value; RaisePropertyChanged("isNewTaskVisible"); }
-        }
-
-        public void DefaultCollection()
-        {
-            var list = NoteManager.GetNoteList();
-            NotesCollection.Clear();
-
-            foreach (Note n in list)
-            {
-                //If it's first note then create collection
-                if(NoteManager.isFirstNote(n.id))
-                {
-                    var collection = (new CollectionRepresentation { NoteCollection = getSingleCollection(n.id) });
-                    NotesCollection.Add(collection);
-                }
-            }
-        }
-
-        public class CollectionRepresentation
-        {
-            public ObservableCollection<Note> NoteCollection { get; set; }
-        }
-        public ObservableCollection<Note> getSingleCollection(int id)
-        {
-            return NoteManager.GetSingleCollection(id);
-        }
-
+        #region Navigation
         public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> suspensionState)
         {
             await Task.CompletedTask;
@@ -256,7 +190,9 @@ namespace Post.ViewModels
             args.Cancel = false;
             await Task.CompletedTask;
         }
+        #endregion
 
+        #region ListView
         public void ListView_DragItemsStarting(object sender, DragItemsStartingEventArgs e)
         {
             var item = e.Items[0];
@@ -480,7 +416,9 @@ namespace Post.ViewModels
             //REMOVE MOVEDOBJECT
             movedObject = null;
         }
+        #endregion
 
+        #region RemoveControler
         public void RemoveEmptyListViews()
         {
             ObservableCollection<CollectionRepresentation> list = new ObservableCollection<CollectionRepresentation>();
@@ -512,15 +450,79 @@ namespace Post.ViewModels
             //REMOVE EMPTY
             RemoveEmptyListViews();
         }
+        #endregion
 
-        public void GotoDetailsPage() =>
-            NavigationService.Navigate(typeof(Views.DetailPage), 0);
-
+        #region SwitchPage
         public void GotoSettings() =>
             NavigationService.Navigate(typeof(Views.SettingsPage), 0);
 
         public void GotoAbout() =>
             NavigationService.Navigate(typeof(Views.SettingsPage), 2);
+        #endregion
+
+        #region GetSetVariables
+        public bool Notificate
+        {
+            get { return notificate; }
+            set { notificate = value; }
+        }
+
+        public String taskHeader
+        {
+            get { return _header; }
+            set { _header = value; RaisePropertyChanged("taskHeader"); }
+        }
+        public String taskContent
+        {
+            get { return _content; }
+            set { _content = value; RaisePropertyChanged("taskContent"); }
+        }
+        public DateTime taskDate
+        {
+            get { return _date; }
+            set { _date = value.Date.AddHours(12); RaisePropertyChanged("taskDate"); }
+        }
+
+        public DateTime minDate
+        {
+            get { return mindate; }
+            set { mindate = value; RaisePropertyChanged("minDate"); }
+        }
+
+        public Visibility isRemoveVisible
+        {
+            get { return _isRemoveVisible; }
+            set { _isRemoveVisible = value; RaisePropertyChanged("isRemoveVisible"); }
+        }
+
+        public Visibility isNewTaskVisible
+        {
+            get { return _isNewTaskVisible; }
+            set { _isNewTaskVisible = value; RaisePropertyChanged("isNewTaskVisible"); }
+        }
+        #endregion
+
+        #region Methods
+        public void DefaultCollection()
+        {
+            var list = NoteManager.GetNoteList();
+            NotesCollection.Clear();
+
+            foreach (Note n in list)
+            {
+                //If it's first note then create collection
+                if (NoteManager.isFirstNote(n.id))
+                {
+                    var collection = (new CollectionRepresentation { NoteCollection = getSingleCollection(n.id) });
+                    NotesCollection.Add(collection);
+                }
+            }
+        }
+
+        public ObservableCollection<Note> getSingleCollection(int id)
+        {
+            return NoteManager.GetSingleCollection(id);
+        }
 
         public String RemoveHeaderCount(String h)
         {
@@ -635,6 +637,23 @@ namespace Post.ViewModels
             }
             return id;
         }
+        #endregion
+
+        #region Notification
+        //DELAY TIMER
+        public static void DelayAction(int millisecond, Action action)
+        {
+            var timer = new DispatcherTimer();
+            timer.Tick += delegate
+
+            {
+                action.Invoke();
+                timer.Stop();
+            };
+
+            timer.Interval = TimeSpan.FromMilliseconds(millisecond);
+            timer.Start();
+        }
 
         public void NotificateAboutUpcomingTask()
         {
@@ -656,7 +675,18 @@ namespace Post.ViewModels
                 }
 
                 //DISPLAY MSG TODAY
-                if (early.Date.CompareTo(today) <= 0)
+                if (early.Date.CompareTo(today) < 0)
+                {
+                    IToastText02 notification = ToastContentFactory.CreateToastText02();
+                    notification.TextHeading.Text = "Min¹³ termin zadania!";
+                    notification.TextBodyWrap.Text = head;
+                    notification.Duration = ToastDuration.Short;
+
+                    ToastNotification not = new ToastNotification(notification.GetXml());
+                    not.ExpirationTime = DateTimeOffset.Now.AddSeconds(5);
+                    ToastNotificationManager.CreateToastNotifier().Show(not);
+                }
+                else if (early.Date.CompareTo(today) == 0)
                 {
                     IToastText02 notification = ToastContentFactory.CreateToastText02();
                     notification.TextHeading.Text = "Dzisiaj mija termin zadania!";
@@ -680,11 +710,7 @@ namespace Post.ViewModels
                 }
             }      
         }
-
-        public void DebugPage()
-        {
-            
-        }
+        #endregion
     }
 }
 

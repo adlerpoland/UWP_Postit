@@ -259,8 +259,6 @@ C:\Users\Patryk\documents\visual studio 2015\Projects\Post\Post\obj\x86\Debug\Po
 C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\App.xbf
 C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\Styles\Custom.xbf
 C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\Views\Busy.xbf
-C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\Views\TaskPage.xbf
-C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\Views\DetailPage.xbf
 C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\Views\MainPage.xbf
 C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\Views\SettingsPage.xbf
 C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\Views\Splash.xbf
@@ -395,10 +393,6 @@ C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\App.g
 C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\App.g.cs
 C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\Views\Busy.g.i.cs
 C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\Views\Busy.g.cs
-C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\Views\TaskPage.g.i.cs
-C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\Views\TaskPage.g.cs
-C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\Views\DetailPage.g.i.cs
-C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\Views\DetailPage.g.cs
 C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\Views\MainPage.g.i.cs
 C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\Views\MainPage.g.cs
 C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\Views\SettingsPage.g.i.cs
@@ -409,16 +403,12 @@ C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\XamlT
 C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\App.xaml
 C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\Styles\Custom.xaml
 C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\Views\Busy.xaml
-C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\Views\TaskPage.xaml
-C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\Views\DetailPage.xaml
 C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\Views\MainPage.xaml
 C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\Views\SettingsPage.xaml
 C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\Views\Splash.xaml
 C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\App.xbf
 C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\Styles\Custom.xbf
 C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\Views\Busy.xbf
-C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\Views\TaskPage.xbf
-C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\Views\DetailPage.xbf
 C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\Views\MainPage.xbf
 C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\Views\SettingsPage.xbf
 C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\Views\Splash.xbf
