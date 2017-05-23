@@ -16,7 +16,7 @@
     <PackageRegistrationPath>
     </PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
-    <RegisteredManifestChecksum>AF3D76F42C69FADDF9CEED289CF566B3D8321DB6374FDF4192079B40648C769C</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>E41B6ABF629456AF39DD490092A0D7B3D0F35C77F28ECB48959081ACAE053E87</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>012cfdbd-1a4a-42f2-8536-1bf73bee5260_1.0.0.0_x86__921svg5sgvznp</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>012cfdbd-1a4a-42f2-8536-1bf73bee5260_921svg5sgvznp!App</RegisteredUserModeAppID>
     <RegisteredPackageID>012cfdbd-1a4a-42f2-8536-1bf73bee5260</RegisteredPackageID>
@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-05-22T18:34:32.094</Modified>
+      <Modified>2017-05-23T00:44:08.020</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\Post.exe">
-      <PackagePath>entrypoint\Post.exe</PackagePath>
-      <Modified>2017-05-22T18:34:31.296</Modified>
+    <AppxPackagedFile Include="C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\Post IT Notes.exe">
+      <PackagePath>entrypoint\Post IT Notes.exe</PackagePath>
+      <Modified>2017-05-23T00:44:07.216</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Patryk\.nuget\packages\Microsoft.CSharp\4.0.1\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -566,9 +566,9 @@
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-05-19T13:54:28.739</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\Post.xr.xml">
-      <PackagePath>Post.xr.xml</PackagePath>
-      <Modified>2017-05-22T18:28:16.560</Modified>
+    <AppxPackagedFile Include="C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\Post IT Notes.xr.xml">
+      <PackagePath>Post IT Notes.xr.xml</PackagePath>
+      <Modified>2017-05-23T00:36:36.965</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -609,11 +609,11 @@
     <AppxPackagedFile Include="C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-05-22T18:34:31.812</Modified>
+      <Modified>2017-05-23T00:44:07.720</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\Core\Post.exe">
-      <PackagePath>Post.exe</PackagePath>
-      <Modified>2017-05-22T18:34:32.092</Modified>
+    <AppxPackagedFile Include="C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\Core\Post IT Notes.exe">
+      <PackagePath>Post IT Notes.exe</PackagePath>
+      <Modified>2017-05-23T00:44:08.016</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

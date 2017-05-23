@@ -256,8 +256,6 @@ C:\Users\Patryk\documents\visual studio 2015\Projects\Post\Post\obj\x86\Debug\No
 C:\Users\Patryk\documents\visual studio 2015\Projects\Post\Post\obj\x86\Debug\Template10Library.pri.xml
 C:\Users\Patryk\documents\visual studio 2015\Projects\Post\Post\obj\x86\Debug\ProjectArchitectures.txt
 C:\Users\Patryk\documents\visual studio 2015\Projects\Post\Post\obj\x86\Debug\Post.csprojResolveAssemblyReference.cache
-C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\Post.exe
-C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\Post.pdb
 C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\App.xbf
 C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\Styles\Custom.xbf
 C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\Views\Busy.xbf
@@ -266,9 +264,6 @@ C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\Views
 C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\Views\MainPage.xbf
 C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\Views\SettingsPage.xbf
 C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\Views\Splash.xbf
-C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\Post.xr.xml
-C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\Post.exe
-C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\Post.pdb
 C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\resources.pri
 C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\AppxManifest.xml
 C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\Core\AppxManifest.xml
@@ -396,7 +391,6 @@ C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\Syste
 C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\System.Xml.XmlDocument.dll
 C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\System.Xml.XmlSerializer.dll
 C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\Template10Library.dll
-C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\Post.csprojResolveAssemblyReference.cache
 C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\App.g.i.cs
 C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\App.g.cs
 C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\Views\Busy.g.i.cs
@@ -509,3 +503,12 @@ C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\Micro
 C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\NotificationsExtensions.pri.xml
 C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\Template10Library.pri.xml
 C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\ProjectArchitectures.txt
+C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\Post.csprojResolveAssemblyReference.cache
+C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\Post IT Notes.xr.xml
+C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\Post IT Notes.exe
+C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\Post IT Notes.pdb
+C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\Core\Post IT Notes.exe
+C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\Post IT Notes.exe
+C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\Post IT Notes.pdb
+C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\resources.en-us.resfiles
+C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\obj\x86\Debug\resources.en-us.resfiles.intermediate

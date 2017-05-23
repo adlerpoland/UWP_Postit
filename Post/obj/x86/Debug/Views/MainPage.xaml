@@ -1,4 +1,4 @@
-<Page x:Class="Post.Views.MainPage"
+ï»¿<Page x:ConnectionId='1' x:Class="Post.Views.MainPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:Behaviors="using:Template10.Behaviors"
@@ -14,12 +14,12 @@
       mc:Ignorable="d">
 
     <Page.Resources>
-        <conv:DateFormatConverter x:Name="DateToStringFormatConverter"/>
+        <conv:DateFormatConverter x:ConnectionId='2' x:Name="DateToStringFormatConverter"/>
         <conv:DateTimeToDateTimeOffsetConverter x:Key="DateTimeToDateTimeOffsetConverter"/>
     </Page.Resources>
     
     <Page.DataContext>
-        <vm:MainPageViewModel x:Name="ViewModel" />
+        <vm:MainPageViewModel x:ConnectionId='3' x:Name="ViewModel" />
     </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -36,8 +36,8 @@
         <RelativePanel Grid.Column="0" MinHeight="50">
 
             <VisualStateManager.VisualStateGroups>
-                <VisualStateGroup x:Name="AdaptiveVisualStateGroup">
-                    <VisualState x:Name="VisualStateNarrow">
+                <VisualStateGroup x:ConnectionId='14' x:Name="AdaptiveVisualStateGroup">
+                    <VisualState x:ConnectionId='15' x:Name="VisualStateNarrow">
                         <VisualState.StateTriggers>
                             <AdaptiveTrigger MinWindowWidth="{StaticResource NarrowMinWidth}" />
                         </VisualState.StateTriggers>
@@ -46,7 +46,7 @@
                             <Setter Target="stateTextBox.Text" Value="Narrow Visual State" />
                         </VisualState.Setters>
                     </VisualState>
-                    <VisualState x:Name="VisualStateNormal">
+                    <VisualState x:ConnectionId='16' x:Name="VisualStateNormal">
                         <VisualState.StateTriggers>
                             <AdaptiveTrigger MinWindowWidth="{StaticResource NormalMinWidth}" />
                         </VisualState.StateTriggers>
@@ -55,7 +55,7 @@
                             <Setter Target="stateTextBox.Text" Value="Normal Visual State" />
                         </VisualState.Setters>
                     </VisualState>
-                    <VisualState x:Name="VisualStateWide">
+                    <VisualState x:ConnectionId='17' x:Name="VisualStateWide">
                         <VisualState.StateTriggers>
                             <AdaptiveTrigger MinWindowWidth="{StaticResource WideMinWidth}" />
                         </VisualState.StateTriggers>
@@ -67,7 +67,7 @@
                 </VisualStateGroup>
             </VisualStateManager.VisualStateGroups>
 
-            <controls:PageHeader x:Name="pageHeader"
+            <controls:PageHeader x:ConnectionId='18' x:Name="pageHeader"
                              RelativePanel.AlignLeftWithPanel="True"
                              RelativePanel.AlignRightWithPanel="True"
                              RelativePanel.AlignTopWithPanel="True"
@@ -75,9 +75,9 @@
 
                 <!--  secondary commands  -->
                 <controls:PageHeader.SecondaryCommands>
-                    <AppBarButton Click="{x:Bind ViewModel.GotoSettings}" Label="Settings" />
-                    <AppBarButton Click="{x:Bind ViewModel.GotoAbout}" Label="About" />
-                    <AppBarButton Click="{x:Bind ViewModel.DefaultCollection}" Label="Load example data" />
+                    <AppBarButton x:ConnectionId='19'                                         Label="Settings" />
+                    <AppBarButton x:ConnectionId='20'                                      Label="About" />
+                    <AppBarButton x:ConnectionId='21'                                              Label="Load example data" />
                 </controls:PageHeader.SecondaryCommands>
 
             </controls:PageHeader>
@@ -87,10 +87,10 @@
 
         <!--<RelativePanel Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">-->
         <RelativePanel Grid.Row="1" HorizontalAlignment="Center">
-            <GridView 
+            <GridView x:ConnectionId='10' 
                 MinHeight="200" 
                 MinWidth="200" 
-                ItemsSource="{x:Bind ViewModel.NotesCollection}" 
+                                                                 
                 CanDragItems="True" 
                 AllowDrop="True" 
                 CanReorderItems="True">
@@ -101,17 +101,17 @@
                     </Style>
                 </GridView.ItemContainerStyle>
                 <GridView.ItemTemplate >
-                    <DataTemplate x:DataType="data:NoteCollecton">
-                        <ListView ItemsSource="{Binding NoteCollection}" 
+                    <DataTemplate                                >
+                        <ListView x:ConnectionId='13' ItemsSource="{Binding NoteCollection}" 
                                   Height="300" 
                                   Padding="0,10,10,180"
                                   Margin="10,0,0,0" 
                                   CanDragItems="True" 
                                   AllowDrop="True"
-                                  DragItemsStarting="ViewModel.ListView_DragItemsStarting"
-                                  DragOver="ViewModel.ListView_DragOver"   
-                                  DragItemsCompleted="ViewModel.ListView_DragItemsCompleted"
-                                  Drop="ViewModel.ListView_Drop"
+                                                                                          
+                                                                           
+                                                                                            
+                                                                
                                   ScrollViewer.VerticalScrollMode="Auto"
                                   ScrollViewer.VerticalScrollBarVisibility="Auto">
                             <StackPanel Height="400" Width="200">
@@ -130,7 +130,7 @@
                                 </Style>
                             </ListView.ItemContainerStyle>
                             <ListView.ItemTemplate>
-                                <DataTemplate x:DataType="data:Note">
+                                <DataTemplate                       >
                                     <StackPanel Height="202" Width="200" Margin="10,0,10,0" BorderThickness="2" BorderBrush="#FF320000" RenderTransformOrigin="0.5,0.5">
                                         <StackPanel.Background>
                                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -148,7 +148,7 @@
                     </DataTemplate>
                 </GridView.ItemTemplate>
             </GridView>
-            <UserControl x:Name="removeControl"
+            <UserControl x:ConnectionId='11' x:Name="removeControl"
                          Width="100" 
                          HorizontalAlignment="Center" 
                          VerticalAlignment="Stretch" 
@@ -157,36 +157,36 @@
                          RelativePanel.AlignLeftWithPanel="True" 
                          RelativePanel.AlignRightWithPanel="True"
                          AllowDrop="True"
-                         DragOver="ViewModel.Remove_DragOver"   
-                         Drop="ViewModel.Remove_Drop"
+                                                                
+                                                     
                          Visibility="{Binding isRemoveVisible,Mode=Twoway}">
-                <TextBlock x:Name="textBlock" Height="50" HorizontalAlignment="Stretch" Text="(X)" VerticalAlignment="Bottom" FontSize="36" FontWeight="Bold" TextAlignment="Center"/>
+                <TextBlock x:ConnectionId='12' x:Name="textBlock" Height="50" HorizontalAlignment="Stretch" Text="(X)" VerticalAlignment="Bottom" FontSize="36" FontWeight="Bold" TextAlignment="Center"/>
             </UserControl>
         </RelativePanel>
         <Grid Visibility="{Binding isNewTaskVisible,Mode=Twoway}" Grid.Row="1" Background="#B2000000">
             <RelativePanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <StackPanel Name="createNote" Height="200" Width="200" Margin="10,5,10,5">
+                <StackPanel x:ConnectionId='5' Name="createNote" Height="200" Width="200" Margin="10,5,10,5">
                     <StackPanel.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FF935920" Offset="0"/>
                             <GradientStop Color="#FFC59564" Offset="1"/>
                         </LinearGradientBrush>
                     </StackPanel.Background>
-                    <TextBox ToolTipService.ToolTip="Tytul (od 2 do 12 znaków)" MaxLength="12" Text="{Binding taskHeader,Mode=Twoway}" Name="newHeader" Margin="5,5,5,5" Height="35" TextWrapping="NoWrap" HorizontalAlignment="Stretch" TextAlignment="Center" FontSize="20" FontWeight="ExtraBold" Foreground="#FFD6B900" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
-                    <TextBox ToolTipService.ToolTip="Tresc (od 5 do 120 znaków)" MaxLength="120" Text="{Binding taskContent,Mode=Twoway}" Name="newContent" Margin="5,0,5,4" Height="120" TextWrapping="Wrap" FontSize="16" FontStyle="Italic" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="header"/>
+                    <TextBox x:ConnectionId='8' ToolTipService.ToolTip="Tytul (od 2 do 12 znakï¿½w)" MaxLength="12" Text="{Binding taskHeader,Mode=Twoway}" Name="newHeader" Margin="5,5,5,5" Height="35" TextWrapping="NoWrap" HorizontalAlignment="Stretch" TextAlignment="Center" FontSize="20" FontWeight="ExtraBold" Foreground="#FFD6B900" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
+                    <TextBox x:ConnectionId='9' ToolTipService.ToolTip="Tresc (od 5 do 120 znakï¿½w)" MaxLength="120" Text="{Binding taskContent,Mode=Twoway}" Name="newContent" Margin="5,0,5,4" Height="120" TextWrapping="Wrap" FontSize="16" FontStyle="Italic" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="header"/>
                     <!--<TextBox ToolTipService.ToolTip="Data (format dd.mm.yyyy)" MaxLength="10" Text="{Binding taskDate,Mode=Twoway}" Name="newDate" Margin="5,0,5,0" Height="15" TextWrapping="NoWrap" VerticalAlignment="Bottom" Foreground="Black" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True" HorizontalAlignment="Right" TextAlignment="Right"/>
                     -->
                     <DatePicker MinWidth="50" MinYear="{Binding minDate,Converter={StaticResource DateTimeToDateTimeOffsetConverter}}" Width="190" Margin="0,0,0,0" HorizontalAlignment="Center" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" Date="{Binding taskDate,Converter={StaticResource DateTimeToDateTimeOffsetConverter}, Mode=TwoWay}" MonthFormat="{}{month.integer}" Style="{StaticResource DatePickerStyle1}"/>
                 </StackPanel>
-                <Button x:Name="okButton"
-                        Click="{x:Bind ViewModel.SubmitNewTask}"
+                <Button x:ConnectionId='6' x:Name="okButton"
+                                                                
                         ToolTipService.ToolTip="Akceptuj"
                         Margin="0,5,0,0"
                         Content="Ok"  
                         Width="80"
                         RelativePanel.Below="createNote" RelativePanel.AlignRightWithPanel="True"/>
-                <Button x:Name="cancelButton"
-                        Click="{x:Bind ViewModel.CancelNewTask}"
+                <Button x:ConnectionId='7' x:Name="cancelButton"
+                                                                
                         ToolTipService.ToolTip="Anuluj"
                         Margin="0,5,0,0"
                         Content="Cancel"  
@@ -199,12 +199,13 @@
                        HorizontalAlignment="Stretch"
                        Grid.Row="2">
 
-            <Button x:Name="newTaskButton"
-                    Click="{x:Bind ViewModel.CreateNewTask}"
+            <Button x:ConnectionId='4' x:Name="newTaskButton"
+                                                            
                     Content="New Task"  
                     MinWidth="180"
                     VerticalAlignment="Stretch" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True" />
         </RelativePanel>
     </Grid>
 </Page>
+
 

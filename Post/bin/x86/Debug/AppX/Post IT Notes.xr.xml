@@ -5,7 +5,7 @@
   </Roots.Interfaces>
   <Roots.PropertyPathNames>
     <RootPropertyPathName Name="isNewTaskVisible" />
-    <RootPropertyPathName Name="minYear" />
+    <RootPropertyPathName Name="minDate" />
     <RootPropertyPathName Name="taskDate" />
     <RootPropertyPathName Name="taskContent" />
     <RootPropertyPathName Name="taskHeader" />
@@ -317,6 +317,7 @@
     </RootType>
     <RootType FullName="Post.Views.DetailPage" />
     <RootType FullName="Post.Converters.DateFormatConverter" />
+    <RootType FullName="Post.Converters.DateTimeToDateTimeOffsetConverter" />
     <RootType FullName="Post.ViewModels.MainPageViewModel" />
     <RootType FullName="Windows.UI.Xaml.Data.Binding">
       <RootProperty Name="Mode" />

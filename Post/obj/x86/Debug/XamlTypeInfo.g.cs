@@ -156,7 +156,7 @@ namespace Post.Post_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[67];
+            _typeNameTable = new string[69];
             _typeNameTable[0] = "Template10.Common.BootStrapper";
             _typeNameTable[1] = "Windows.UI.Xaml.Application";
             _typeNameTable[2] = "Template10.Common.StateItems";
@@ -217,15 +217,17 @@ namespace Post.Post_XamlTypeInfo
             _typeNameTable[57] = "Post.ViewModels.DetailPageViewModel";
             _typeNameTable[58] = "Post.Views.DetailPage";
             _typeNameTable[59] = "Post.Converters.DateFormatConverter";
-            _typeNameTable[60] = "Post.ViewModels.MainPageViewModel";
-            _typeNameTable[61] = "Post.Views.MainPage";
-            _typeNameTable[62] = "Post.ViewModels.SettingsPageViewModel";
-            _typeNameTable[63] = "Post.ViewModels.SettingsPartViewModel";
-            _typeNameTable[64] = "Post.ViewModels.AboutPartViewModel";
-            _typeNameTable[65] = "Post.Views.SettingsPage";
-            _typeNameTable[66] = "Post.Views.Splash";
+            _typeNameTable[60] = "Post.Converters.DateTimeToDateTimeOffsetConverter";
+            _typeNameTable[61] = "Post.ViewModels.MainPageViewModel";
+            _typeNameTable[62] = "System.DateTime";
+            _typeNameTable[63] = "Post.Views.MainPage";
+            _typeNameTable[64] = "Post.ViewModels.SettingsPageViewModel";
+            _typeNameTable[65] = "Post.ViewModels.SettingsPartViewModel";
+            _typeNameTable[66] = "Post.ViewModels.AboutPartViewModel";
+            _typeNameTable[67] = "Post.Views.SettingsPage";
+            _typeNameTable[68] = "Post.Views.Splash";
 
-            _typeTable = new global::System.Type[67];
+            _typeTable = new global::System.Type[69];
             _typeTable[0] = typeof(global::Template10.Common.BootStrapper);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Application);
             _typeTable[2] = typeof(global::Template10.Common.StateItems);
@@ -286,13 +288,15 @@ namespace Post.Post_XamlTypeInfo
             _typeTable[57] = typeof(global::Post.ViewModels.DetailPageViewModel);
             _typeTable[58] = typeof(global::Post.Views.DetailPage);
             _typeTable[59] = typeof(global::Post.Converters.DateFormatConverter);
-            _typeTable[60] = typeof(global::Post.ViewModels.MainPageViewModel);
-            _typeTable[61] = typeof(global::Post.Views.MainPage);
-            _typeTable[62] = typeof(global::Post.ViewModels.SettingsPageViewModel);
-            _typeTable[63] = typeof(global::Post.ViewModels.SettingsPartViewModel);
-            _typeTable[64] = typeof(global::Post.ViewModels.AboutPartViewModel);
-            _typeTable[65] = typeof(global::Post.Views.SettingsPage);
-            _typeTable[66] = typeof(global::Post.Views.Splash);
+            _typeTable[60] = typeof(global::Post.Converters.DateTimeToDateTimeOffsetConverter);
+            _typeTable[61] = typeof(global::Post.ViewModels.MainPageViewModel);
+            _typeTable[62] = typeof(global::System.DateTime);
+            _typeTable[63] = typeof(global::Post.Views.MainPage);
+            _typeTable[64] = typeof(global::Post.ViewModels.SettingsPageViewModel);
+            _typeTable[65] = typeof(global::Post.ViewModels.SettingsPartViewModel);
+            _typeTable[66] = typeof(global::Post.ViewModels.AboutPartViewModel);
+            _typeTable[67] = typeof(global::Post.Views.SettingsPage);
+            _typeTable[68] = typeof(global::Post.Views.Splash);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -342,12 +346,13 @@ namespace Post.Post_XamlTypeInfo
         private object Activate_57_DetailPageViewModel() { return new global::Post.ViewModels.DetailPageViewModel(); }
         private object Activate_58_DetailPage() { return new global::Post.Views.DetailPage(); }
         private object Activate_59_DateFormatConverter() { return new global::Post.Converters.DateFormatConverter(); }
-        private object Activate_60_MainPageViewModel() { return new global::Post.ViewModels.MainPageViewModel(); }
-        private object Activate_61_MainPage() { return new global::Post.Views.MainPage(); }
-        private object Activate_62_SettingsPageViewModel() { return new global::Post.ViewModels.SettingsPageViewModel(); }
-        private object Activate_63_SettingsPartViewModel() { return new global::Post.ViewModels.SettingsPartViewModel(); }
-        private object Activate_64_AboutPartViewModel() { return new global::Post.ViewModels.AboutPartViewModel(); }
-        private object Activate_65_SettingsPage() { return new global::Post.Views.SettingsPage(); }
+        private object Activate_60_DateTimeToDateTimeOffsetConverter() { return new global::Post.Converters.DateTimeToDateTimeOffsetConverter(); }
+        private object Activate_61_MainPageViewModel() { return new global::Post.ViewModels.MainPageViewModel(); }
+        private object Activate_63_MainPage() { return new global::Post.Views.MainPage(); }
+        private object Activate_64_SettingsPageViewModel() { return new global::Post.ViewModels.SettingsPageViewModel(); }
+        private object Activate_65_SettingsPartViewModel() { return new global::Post.ViewModels.SettingsPartViewModel(); }
+        private object Activate_66_AboutPartViewModel() { return new global::Post.ViewModels.AboutPartViewModel(); }
+        private object Activate_67_SettingsPage() { return new global::Post.Views.SettingsPage(); }
         private void MapAdd_2_StateItems(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.String, global::System.Object>)instance;
@@ -813,57 +818,71 @@ namespace Post.Post_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 60:   //  Post.ViewModels.MainPageViewModel
+            case 60:   //  Post.Converters.DateTimeToDateTimeOffsetConverter
+                userType = new global::Post.Post_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_60_DateTimeToDateTimeOffsetConverter;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 61:   //  Post.ViewModels.MainPageViewModel
                 userType = new global::Post.Post_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Template10.Mvvm.ViewModelBase"));
-                userType.Activator = Activate_60_MainPageViewModel;
+                userType.Activator = Activate_61_MainPageViewModel;
                 userType.AddMemberName("Notificate");
                 userType.AddMemberName("taskHeader");
                 userType.AddMemberName("taskContent");
                 userType.AddMemberName("taskDate");
+                userType.AddMemberName("minDate");
                 userType.AddMemberName("isRemoveVisible");
                 userType.AddMemberName("isNewTaskVisible");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 61:   //  Post.Views.MainPage
+            case 62:   //  System.DateTime
+                userType = new global::Post.Post_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 63:   //  Post.Views.MainPage
                 userType = new global::Post.Post_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_61_MainPage;
+                userType.Activator = Activate_63_MainPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 62:   //  Post.ViewModels.SettingsPageViewModel
+            case 64:   //  Post.ViewModels.SettingsPageViewModel
                 userType = new global::Post.Post_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Template10.Mvvm.ViewModelBase"));
-                userType.Activator = Activate_62_SettingsPageViewModel;
+                userType.Activator = Activate_64_SettingsPageViewModel;
                 userType.AddMemberName("SettingsPartViewModel");
                 userType.AddMemberName("AboutPartViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 63:   //  Post.ViewModels.SettingsPartViewModel
+            case 65:   //  Post.ViewModels.SettingsPartViewModel
                 userType = new global::Post.Post_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Template10.Mvvm.ViewModelBase"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 64:   //  Post.ViewModels.AboutPartViewModel
+            case 66:   //  Post.ViewModels.AboutPartViewModel
                 userType = new global::Post.Post_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Template10.Mvvm.ViewModelBase"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 65:   //  Post.Views.SettingsPage
+            case 67:   //  Post.Views.SettingsPage
                 userType = new global::Post.Post_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_65_SettingsPage;
+                userType.Activator = Activate_67_SettingsPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 66:   //  Post.Views.Splash
+            case 68:   //  Post.Views.Splash
                 userType = new global::Post.Post_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
                 userType.SetIsLocalType();
                 xamlType = userType;
@@ -1835,34 +1854,44 @@ namespace Post.Post_XamlTypeInfo
         private void set_93_MainPageViewModel_taskDate(object instance, object Value)
         {
             var that = (global::Post.ViewModels.MainPageViewModel)instance;
-            that.taskDate = (global::System.String)Value;
+            that.taskDate = (global::System.DateTime)Value;
         }
-        private object get_94_MainPageViewModel_isRemoveVisible(object instance)
+        private object get_94_MainPageViewModel_minDate(object instance)
+        {
+            var that = (global::Post.ViewModels.MainPageViewModel)instance;
+            return that.minDate;
+        }
+        private void set_94_MainPageViewModel_minDate(object instance, object Value)
+        {
+            var that = (global::Post.ViewModels.MainPageViewModel)instance;
+            that.minDate = (global::System.DateTime)Value;
+        }
+        private object get_95_MainPageViewModel_isRemoveVisible(object instance)
         {
             var that = (global::Post.ViewModels.MainPageViewModel)instance;
             return that.isRemoveVisible;
         }
-        private void set_94_MainPageViewModel_isRemoveVisible(object instance, object Value)
+        private void set_95_MainPageViewModel_isRemoveVisible(object instance, object Value)
         {
             var that = (global::Post.ViewModels.MainPageViewModel)instance;
             that.isRemoveVisible = (global::Windows.UI.Xaml.Visibility)Value;
         }
-        private object get_95_MainPageViewModel_isNewTaskVisible(object instance)
+        private object get_96_MainPageViewModel_isNewTaskVisible(object instance)
         {
             var that = (global::Post.ViewModels.MainPageViewModel)instance;
             return that.isNewTaskVisible;
         }
-        private void set_95_MainPageViewModel_isNewTaskVisible(object instance, object Value)
+        private void set_96_MainPageViewModel_isNewTaskVisible(object instance, object Value)
         {
             var that = (global::Post.ViewModels.MainPageViewModel)instance;
             that.isNewTaskVisible = (global::Windows.UI.Xaml.Visibility)Value;
         }
-        private object get_96_SettingsPageViewModel_SettingsPartViewModel(object instance)
+        private object get_97_SettingsPageViewModel_SettingsPartViewModel(object instance)
         {
             var that = (global::Post.ViewModels.SettingsPageViewModel)instance;
             return that.SettingsPartViewModel;
         }
-        private object get_97_SettingsPageViewModel_AboutPartViewModel(object instance)
+        private object get_98_SettingsPageViewModel_AboutPartViewModel(object instance)
         {
             var that = (global::Post.ViewModels.SettingsPageViewModel)instance;
             return that.AboutPartViewModel;
@@ -2500,32 +2529,38 @@ namespace Post.Post_XamlTypeInfo
                 break;
             case "Post.ViewModels.MainPageViewModel.taskDate":
                 userType = (global::Post.Post_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Post.ViewModels.MainPageViewModel");
-                xamlMember = new global::Post.Post_XamlTypeInfo.XamlMember(this, "taskDate", "String");
+                xamlMember = new global::Post.Post_XamlTypeInfo.XamlMember(this, "taskDate", "System.DateTime");
                 xamlMember.Getter = get_93_MainPageViewModel_taskDate;
                 xamlMember.Setter = set_93_MainPageViewModel_taskDate;
+                break;
+            case "Post.ViewModels.MainPageViewModel.minDate":
+                userType = (global::Post.Post_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Post.ViewModels.MainPageViewModel");
+                xamlMember = new global::Post.Post_XamlTypeInfo.XamlMember(this, "minDate", "System.DateTime");
+                xamlMember.Getter = get_94_MainPageViewModel_minDate;
+                xamlMember.Setter = set_94_MainPageViewModel_minDate;
                 break;
             case "Post.ViewModels.MainPageViewModel.isRemoveVisible":
                 userType = (global::Post.Post_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Post.ViewModels.MainPageViewModel");
                 xamlMember = new global::Post.Post_XamlTypeInfo.XamlMember(this, "isRemoveVisible", "Windows.UI.Xaml.Visibility");
-                xamlMember.Getter = get_94_MainPageViewModel_isRemoveVisible;
-                xamlMember.Setter = set_94_MainPageViewModel_isRemoveVisible;
+                xamlMember.Getter = get_95_MainPageViewModel_isRemoveVisible;
+                xamlMember.Setter = set_95_MainPageViewModel_isRemoveVisible;
                 break;
             case "Post.ViewModels.MainPageViewModel.isNewTaskVisible":
                 userType = (global::Post.Post_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Post.ViewModels.MainPageViewModel");
                 xamlMember = new global::Post.Post_XamlTypeInfo.XamlMember(this, "isNewTaskVisible", "Windows.UI.Xaml.Visibility");
-                xamlMember.Getter = get_95_MainPageViewModel_isNewTaskVisible;
-                xamlMember.Setter = set_95_MainPageViewModel_isNewTaskVisible;
+                xamlMember.Getter = get_96_MainPageViewModel_isNewTaskVisible;
+                xamlMember.Setter = set_96_MainPageViewModel_isNewTaskVisible;
                 break;
             case "Post.ViewModels.SettingsPageViewModel.SettingsPartViewModel":
                 userType = (global::Post.Post_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Post.ViewModels.SettingsPageViewModel");
                 xamlMember = new global::Post.Post_XamlTypeInfo.XamlMember(this, "SettingsPartViewModel", "Post.ViewModels.SettingsPartViewModel");
-                xamlMember.Getter = get_96_SettingsPageViewModel_SettingsPartViewModel;
+                xamlMember.Getter = get_97_SettingsPageViewModel_SettingsPartViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Post.ViewModels.SettingsPageViewModel.AboutPartViewModel":
                 userType = (global::Post.Post_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Post.ViewModels.SettingsPageViewModel");
                 xamlMember = new global::Post.Post_XamlTypeInfo.XamlMember(this, "AboutPartViewModel", "Post.ViewModels.AboutPartViewModel");
-                xamlMember.Getter = get_97_SettingsPageViewModel_AboutPartViewModel;
+                xamlMember.Getter = get_98_SettingsPageViewModel_AboutPartViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             }

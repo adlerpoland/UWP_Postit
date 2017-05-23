@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Template10.Mvvm;
@@ -16,6 +17,7 @@ namespace Post.ViewModels
     public class SettingsPartViewModel : ViewModelBase
     {
         Services.SettingsServices.SettingsService _settings;
+        bool savetodb = true;
 
         public SettingsPartViewModel()
         {
@@ -39,6 +41,17 @@ namespace Post.ViewModels
         {
             get { return _settings.AppTheme.Equals(ApplicationTheme.Light); }
             set { _settings.AppTheme = value ? ApplicationTheme.Light : ApplicationTheme.Dark; base.RaisePropertyChanged(); }
+        }
+
+        public bool SaveToDB
+        {
+            get { return savetodb; }
+            set { Debug.WriteLine("DB: "+ value); savetodb = value; base.RaisePropertyChanged(); }
+        }
+
+        public void LoadExampleData()
+        {
+            Debug.WriteLine("LOAD EXAMPLE DATA");
         }
 
         private string _BusyText = "Please wait...";

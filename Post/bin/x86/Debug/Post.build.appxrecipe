@@ -22,8 +22,8 @@
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\Post.exe">
-      <PackagePath>entrypoint\Post.exe</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\Post IT Notes.exe">
+      <PackagePath>entrypoint\Post IT Notes.exe</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Patryk\.nuget\packages\Microsoft.CSharp\4.0.1\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -424,8 +424,8 @@
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\Post.xr.xml">
-      <PackagePath>Post.xr.xml</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\Post IT Notes.xr.xml">
+      <PackagePath>Post IT Notes.xr.xml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -458,8 +458,8 @@
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\Core\Post.exe">
-      <PackagePath>Post.exe</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Patryk\Documents\Projekty Visual\Projects\Post\Post\bin\x86\Debug\Core\Post IT Notes.exe">
+      <PackagePath>Post IT Notes.exe</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

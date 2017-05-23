@@ -17,11 +17,15 @@ using Windows.ApplicationModel.DataTransfer;
 using NotificationsExtensions.ToastContent;
 using Windows.UI.Notifications;
 using System.IO;
+using Windows.ApplicationModel.Core;
 
 namespace Post.ViewModels
 {
     public class MainPageViewModel : ViewModelBase
     {
+        //DB
+        private SQLite.Net.SQLiteConnection conn;
+
         //COLLECTION OF LISTVIEWS
         public ObservableCollection<CollectionRepresentation> NotesCollection = new ObservableCollection<CollectionRepresentation>();
 
@@ -31,27 +35,135 @@ namespace Post.ViewModels
         ObservableCollection<Note> source;
 
         //NOTIFICATION ON START
-        private bool notificate = false;
+        private bool notificate = true;
+
+        //YEAR INPUT
+        private DateTime mindate = new DateTime(2000,01,01);
+
+        //USE DB
+        private bool localdatabase = true;
 
         //------------------------------------------------------
         //VIEWMODEL ON START------------------------------------
         //------------------------------------------------------
         public MainPageViewModel()
         {
-            BuildCollection();
-            NotificateAboutUpcomingTask();
-            CreateDatabase();
+            minDate = DateTime.Now;
+            taskDate = DateTime.Now;
+
+            var region = Windows.System.UserProfile.GlobalizationPreferences.HomeGeographicRegion;
+
+            if (localdatabase == true)
+            {
+                CreateDatabase();
+                ReadDatabase();
+            }
+            else
+            {
+                DefaultCollection();
+                CreateDatabase();
+            }
+
+            DelayAction(2000, new Action(() => { this.NotificateAboutUpcomingTask(); }));
+
+            Application.Current.Suspending += new SuspendingEventHandler(App_Suspending);
         }
 
-        public static void CreateDatabase()
+        //DELAY TIMER
+        public static void DelayAction(int millisecond, Action action)
         {
-            var path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "db.sqlite");
-            Debug.WriteLine(path);
-            using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path))
+            var timer = new DispatcherTimer();
+            timer.Tick += delegate
+
             {
-                conn.CreateTable<Note>();
+                action.Invoke();
+                timer.Stop();
+            };
+
+            timer.Interval = TimeSpan.FromMilliseconds(millisecond);
+            timer.Start();
+        }
+
+        //CREATE DB
+        public void CreateDatabase()
+        {
+            string path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "db.sqlite");
+
+            conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path);
+            conn.CreateTable<Note>();
+            Debug.WriteLine("DB path: "+path);
+        }
+
+        //DROP DB NOTES
+        public void clearDatabase()
+        {
+            conn.DropTable<Note>();
+            conn.CreateTable<Note>();
+            Debug.WriteLine("[DB] Cleared note table!");
+        }
+
+        //INSERT DB NOTES
+        public void InsertDatabase(ObservableCollection<Note> collection)
+        {
+            int i = 0;
+            foreach(Note n in collection)
+            {
+                n.header = RemoveHeaderCount(n.header);
+                conn.Insert(n);
+                i++;
             }
-            Debug.WriteLine(path);
+            Debug.WriteLine("[DB] Inserted " + i + " objects!");
+        }
+
+        //LOAD DB NOTES
+        public void ReadDatabase()
+        {
+            int i = 0;
+            NotesCollection.Clear();
+        
+            var query = conn.Table<Note>();
+            foreach (Note n in query)
+            {
+                if(n.parentid == 0)
+                {
+                    var collect = new CollectionRepresentation { NoteCollection = new ObservableCollection<Note>() };
+
+                    n.header = n.header + " #1";
+                    collect.NoteCollection.Add(n);
+                    int j = 2;
+                    int parentID = n.id;
+                    foreach(Note child in query)
+                    {
+                        if (child.parentid == parentID)
+                        {
+                            child.header = child.header + " #" + j++;
+                            collect.NoteCollection.Add(child); 
+                        }
+                            
+                    }
+                    NotesCollection.Add(collect);
+                }
+                i++;
+            }
+            Debug.WriteLine("[DB] Readed " + i + " objects!");
+        }
+
+        //WINDOWS
+        public void Savetodb()
+        {
+            clearDatabase();
+            foreach (CollectionRepresentation col in NotesCollection)
+            {
+                InsertDatabase(col.NoteCollection);
+            }
+            Debug.WriteLine("SAVED");
+        }
+
+        //Save db on application exit
+        void App_Suspending(Object sender,Windows.ApplicationModel.SuspendingEventArgs e)
+        {
+            Debug.WriteLine("APP IS CLOSING SAVING DATA TO DB");
+            Savetodb();
         }
 
         ////NOTIFICATION
@@ -64,7 +176,7 @@ namespace Post.ViewModels
         //CREATING NEW TASK
         private String _header = "";
         private String _content = "";
-        private String _date = "";
+        private DateTime _date = new DateTime();
 
         public String taskHeader
         {
@@ -76,10 +188,16 @@ namespace Post.ViewModels
             get { return _content; }
             set { _content = value; RaisePropertyChanged("taskContent"); }
         }
-        public String taskDate
+        public DateTime taskDate
         {
             get { return _date; }
             set { _date = value; RaisePropertyChanged("taskDate"); }
+        }
+
+        public DateTime minDate
+        {
+            get { return mindate; }
+            set { mindate = value; RaisePropertyChanged("minDate"); }
         }
 
         //VISIBILITY
@@ -98,7 +216,7 @@ namespace Post.ViewModels
             set { _isNewTaskVisible = value; RaisePropertyChanged("isNewTaskVisible"); }
         }
 
-        public void BuildCollection()
+        public void DefaultCollection()
         {
             var list = NoteManager.GetNoteList();
             NotesCollection.Clear();
@@ -164,8 +282,11 @@ namespace Post.ViewModels
             //CREATE EMPTY LISTVIEW IF SOURCE.COUNT > 1
             if(listViewItemsSource.Count>1)
             {
-                var empty = new CollectionRepresentation { NoteCollection = new ObservableCollection<Note>() };
-                NotesCollection.Add(empty);
+                if(listViewItemsSource[0]!= movedObject)
+                {
+                    var empty = new CollectionRepresentation { NoteCollection = new ObservableCollection<Note>() };
+                    NotesCollection.Add(empty);
+                }
             } 
         }
 
@@ -181,7 +302,7 @@ namespace Post.ViewModels
                     if (listViewItemsSource.Count > 0)
                     {
                         Note lastNote = listViewItemsSource.Last();
-                        if (lastNote.date.CompareTo(movedObject.date) <= 0)
+                        if (lastNote.date.CompareTo(movedObject.date) >= 0)
                             e.AcceptedOperation = DataPackageOperation.Move;
                     }
                     else
@@ -354,13 +475,13 @@ namespace Post.ViewModels
                 }
             }
             //REMOVE EMPTY LISTVIEWS FROM GRIDVIEW
-            removeEmptyListViews();
+            RemoveEmptyListViews();
 
             //REMOVE MOVEDOBJECT
             movedObject = null;
         }
 
-        public void removeEmptyListViews()
+        public void RemoveEmptyListViews()
         {
             ObservableCollection<CollectionRepresentation> list = new ObservableCollection<CollectionRepresentation>();
             foreach(CollectionRepresentation n in NotesCollection)
@@ -389,7 +510,7 @@ namespace Post.ViewModels
             source.Remove(movedObject);
 
             //REMOVE EMPTY
-            removeEmptyListViews();
+            RemoveEmptyListViews();
         }
 
         public void GotoDetailsPage() =>
@@ -411,20 +532,20 @@ namespace Post.ViewModels
         {
             String head = taskHeader;
             String cont = taskContent;
-            String dat = taskDate;
+            DateTime output = taskDate;
 
-            String valid = validate(head, cont, dat);
+            String valid = Validate(head, cont, output);
             if (valid.Equals("true"))
             {
                 //UKRYJ TWORZENIE KARTECZKi
                 isNewTaskVisible = Visibility.Collapsed;
                 taskHeader = "";
                 taskContent = "";
-                taskDate = "";
+                //taskDate = "";
 
                 //STWORZ DATE ZE STRINGA
-                DateTime output;
-                DateTime.TryParseExact(dat, "dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out output);
+                //DateTime output;
+                //DateTime.TryParseExact(dat, "dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out output);
 
                 //UTWORZ KARTECZKE
                 int lastId = GetLastID();
@@ -462,7 +583,7 @@ namespace Post.ViewModels
             }
         }
 
-        public String validate(String h, String c, String d)
+        public String Validate(String h, String c,DateTime d)
         {
             if(h.Length>12 || h.Length < 2)
             {
@@ -478,21 +599,13 @@ namespace Post.ViewModels
             }
             else
             {
-                DateTime output;
-                if (DateTime.TryParseExact(d, "dd.MM.yyyy",System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out output))
+                if (d.CompareTo(DateTime.Now.Date) < 0)
                 {
-                    if(output.CompareTo(DateTime.Now.Date) < 0)
-                    {
-                        return "Data jest za stara!";
-                    }
-                    else
-                    {
-                        return "true";
-                    }           
+                    return "Data jest za stara!";
                 }
                 else
                 {
-                    return "Data jest z³ego formatu!\n(dd.MM.yyyy)";
+                    return "true";
                 }
             }
         }
@@ -506,7 +619,7 @@ namespace Post.ViewModels
             isNewTaskVisible = Visibility.Collapsed;
             taskHeader = "";
             taskContent = "";
-            taskDate = "";
+            //taskDate = "";
         }
 
         public int GetLastID()
@@ -525,7 +638,7 @@ namespace Post.ViewModels
 
         public void NotificateAboutUpcomingTask()
         {
-            if(Notificate == true)
+            if(Notificate == true && NotesCollection.Count>0)
             {
                 DateTime early = new DateTime(9999, 12, 30);
                 String head = "";
